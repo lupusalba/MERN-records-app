@@ -1,0 +1,335 @@
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+.navLink {
+  color: #000000;
+}
+
+.navLink:hover {
+  transform: scale(1.05);
+  opacity: 1;
+  transition: all 300ms ease-in-out;
+}
+
+.mainNav {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  padding: 30px;
+  color: #000;
+  border: 1px solid #fff;
+  background-color: #fff;
+  z-index: 111111111111111;
+  opacity: 0.8;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: space-around;
+  align-items: center;
+  width: 300px;
+}
+
+/*************************
+    BOOKS component
+*************************/
+.books {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
+  gap: 30px;
+}
+
+/*************************
+    BOOK component
+*************************/
+.book {
+  width: 400px;
+  grid-column: span 4;
+  position: relative;
+  text-decoration: none;
+  color: #000;
+  margin: 0 auto;
+}
+
+.book:hover {
+  transform: scale(1.05);
+  transition: all 300ms ease-in-out;
+}
+
+.heroWrapper {
+  position: relative;
+}
+
+.heroImage {
+  width: 100%;
+  min-width: 400px;
+  height: 100%;
+  min-height: 600px;
+  border-radius: 20px;
+}
+
+.infoWrapper {
+
+}
+
+.topInfo {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  padding: 0 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topInfo > p {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.topInfo > p > span {
+  padding: 3px 5px;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.bottomInfo > p {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+
+.title {
+  font-size: 1.5em;
+  font-weight: 600;
+  text-align: center;
+}
+
+.author {
+  font-size: 1em;
+}
+
+
+/*************************
+    BookDetails
+*************************/
+.bookDetailsWrapper {
+  padding: 50px 100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
+  gap: 50px;
+}
+
+.bookDetailsHeading {
+  grid-column: span 11;
+}
+.updateDelete {
+  grid-column: span 1;
+  display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.largeHeroImageWrapper {
+  grid-column: span 5;
+}
+
+.bookDetailsData {
+  grid-column: span 7;
+}
+
+.bookDetailsTitle {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.bookDetailsTitle {
+
+}
+
+.lighter {
+  opacity: 0.6;
+}
+
+.bigBold {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.bookDetails {
+  display: flex
+}
+
+.largeHeroImageWrapper {
+
+}
+
+.largeHeroImage {
+  height: auto;
+  width: 100%;
+}
+
+.linkButton {
+  padding: 5px 10px;
+  width: 80px;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.linkDelete {
+  border: 1px solid red;
+  background-color: transparent;
+  color: red;
+}
+.linkDelete:hover {
+  background-color: red;
+  color: #fff;
+  transform: scale(1.05);
+  transition: all 500ms ease;
+}
+.linkDelete:active {
+  box-shadow: 5px 5px red;
+}
+
+
+.linkUpdate {
+  border: 1px solid blue;
+  background-color: transparent;
+  color: blue;
+}
+
+.linkUpdate:hover {
+  background-color: blue;
+  color: #fff;
+  transform: scale(1.05);
+  transition: all 500ms ease;
+}
+
+/*************************
+    NewBook component
+*************************/
+.newBook {
+  width: 80%;
+  margin: 100px auto;
+}
+
+form {
+
+}
+
+form > input  {
+  height: 40px;
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  text-transform: capitalize;
+  padding: 10px;
+}
+
+form > button {
+  display: block;
+}
+
+
+/**************************************************
+********************************************
+********************************************
+********************************************
+
+PAGES Style
+
+********************************************
+********************************************
+********************************************
+**************************************************/
+
+
+/*************************
+    HOME PAGE
+*************************/
+#home {
+
+}
+
+.homeIntro {
+  height: 100vh;
+  width: 100%;
+  background-image: url('./Images//backgroundLibrary.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.loginMenu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 50px;
+  line-height: 50px;
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-direction: row;
+}
+
+.login {
+  color: #fff;
+  height: 30px;
+  width: 100px;
+  font-size: 1.3em;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid transparent;
+  border-right: 1px solid transparent;
+}
+
+.login:hover {
+  border-bottom: 1px solid #fff;
+  border-right: 1px solid #fff;
+  transition: all 300ms ease-in-out;
+}
+
+
+/*************************
+    ALLBOOKS   PAGE
+*************************/
+#allBooksPage {
+  margin: 100px 50px;
+}

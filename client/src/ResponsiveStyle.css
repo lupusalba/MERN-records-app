@@ -1,0 +1,15 @@
+
+@media only screen
+and (min-width : 1224px) {
+  .book { grid-column: span 3;}
+}
+
+@media only screen
+and (max-width : 1223px) {
+  .book { grid-column: span 6;}
+}
+
+@media only screen
+and (max-width : 900px) {
+  .book { grid-column: span 12;}
+}

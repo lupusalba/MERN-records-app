@@ -2,13 +2,19 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const ModelBook = require('./Models/ModelBook')
+const ModelUser = require('./Models/ModelUser')
 
 const app = express();
 
 // const router = express.router();
 
+const AllowedOrigins = {
+  origin:[ 'http://localhost/8080/register', 'http://localhost/3000/register']
+}
+
 app.use(express.json());
-app.use(cors());
+app.use(cors(AllowedOrigins));
+
 
 const PORT = 8080;
 
@@ -24,10 +30,30 @@ mongoose.connect(DB, {
   console.log('DB CONECTED...')
 });
 
+/////////////////////////////
+     // USER API
+/////////////////////////////
+app.post('/register', async (req, res) => {
+  const newUser = await ModelUser(req.body)
+  try {
+    await newUser.save()
+    res.status(201).json({
+      status: 'success',
+      data: { newUser }
+    })
+  } catch (err) {
+    res.status(500).json({
+      status: 'failed',
+      message: err
+    })
+  }
+})
 
 
 
-
+/////////////////////////////
+     // BOOK API
+/////////////////////////////
 app.post('/new-book', async(req,res) => {
   const Book = new ModelBook(req.body)
   try{

@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Axios from 'axios'
+import LoginPage from './Pages/LoginPage'
+import RegisterPage from './Pages/RegisterPage'
 import Home from './Pages/Home'
 import AllBooksPage from './Pages/AllBooksPage';
 import Error from './Pages/ErrorNotFound'
@@ -34,6 +36,9 @@ function App() {
           </div>
         <Routes>
           <Route exact path="/" element={<Home />} />
+          <Route exact path="/login" element={<LoginPage />} />
+          <Route exact path="/register" element={<RegisterPage />} />
+          <Route exact path="/user/:_id" element={<AllBooksPage />} />
           <Route exact path="/new-book" element={<NewBook />} />
           <Route exact path="/books" element={<AllBooksPage />} />
           <Route exact path="/book/:_id" element={<BookPage />} />

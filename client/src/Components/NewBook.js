@@ -60,6 +60,7 @@ const NewBook = () => {
           name="title"
           value={newBook.title}
           onChange={handelChange}
+          required
         />
 
         <label htmlFor="author">Author</label>
@@ -68,6 +69,7 @@ const NewBook = () => {
           name="author"
           value={newBook.author}
           onChange={handelChange}
+          required
         />
 
         <label htmlFor="description">description</label>
@@ -76,6 +78,7 @@ const NewBook = () => {
           name="description"
           value={newBook.description}
           onChange={handelChange}
+          required
         />
 
         <label htmlFor="status">status</label>
@@ -84,6 +87,7 @@ const NewBook = () => {
           name="status"
           value={newBook.status}
           onChange={handelChange}
+          required
         />
         <label htmlFor="heroImage">heroImage</label>
         <input
@@ -98,6 +102,7 @@ const NewBook = () => {
           name="lastUpdated"
           value={newBook.lastUpdated}
           onChange={handelChange}
+          required
         />
         <label htmlFor="alternativeNames">alternativeNames</label>
         <input

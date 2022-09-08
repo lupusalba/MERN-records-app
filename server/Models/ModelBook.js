@@ -1,6 +1,11 @@
 const mongoose = require('mongoose')
 
 const BookScheme = new mongoose.Schema({
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref: 'User'
+  },
   title : {
     type: 'String',
     required: true
@@ -53,6 +58,9 @@ const BookScheme = new mongoose.Schema({
     type: 'Array',
     required: false
   }
+},
+{
+  timestamps: true
 })
 
 const ModelBook = mongoose.model('ModelBook', BookScheme)

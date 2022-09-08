@@ -52,7 +52,7 @@ const NewBook = () => {
 
   return (
     <div className="newBook">
-      <form onSubmit={createNewBook}>
+      <form id="newBookForm" onSubmit={createNewBook}>
 
         <label htmlFor="title">Title</label>
         <input

@@ -234,25 +234,25 @@ a {
   margin: 100px auto;
 }
 
-form {
+#newBookForm {
 
 }
 
-form > input  {
+#newBookForm  > input  {
   height: 40px;
   width: 100%;
   border-radius: 5px;
   margin-bottom: 20px;
 }
 
-label {
+#newBookForm > label {
   display: block;
   font-weight: bold;
   text-transform: capitalize;
   padding: 10px;
 }
 
-form > button {
+#newBookForm > button {
   display: block;
 }
 
@@ -327,6 +327,160 @@ PAGES Style
 }
 
 
+/*************************
+    LOGIN   COMPONENT
+*************************/
+#loginFormContainer {
+  height: 500px;
+  width: 500px;
+  border: 1px solid darkgrey;
+  background-color: lightgray;
+  display: none;
+}
+
+#loginFormContainer > h1 {
+  text-align: center;
+}
+
+#loginForm > input,
+#loginForm > label {
+  display: block;
+  margin: 0 auto;
+  width: 80%;
+  height: 25px;
+}
+
+.loginBtn {
+  display: block;
+  width: 70%;
+  margin: 20px auto;
+  height: 40px;
+}
+
+/*************************
+    LOGIN   COMPONENT
+*************************/
+#registerFormContainer {
+  height: 500px;
+  width: 500px;
+  border: 1px solid darkgrey;
+  background-color: lightgray;
+  display: none;
+}
+#registerFormContainer > h1 {
+  text-align: center;
+}
+
+#loginForm {
+
+}
+
+.loginInput {
+}
+
+.loginBtn {
+
+}
+/*************************
+    Register   COMPONENT
+*************************/
+#registerForm {
+
+}
+
+#registerForm input {
+
+}
+
+.registerBtn {
+
+}
+section {
+  width: 100%;
+  max-width: 420px;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 1rem;
+  background-color: rgba(0,0,0,0.4);
+}
+
+/* form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-grow: 1;
+  padding-bottom: 1rem;
+} */
+
+/* a, a:visited {
+  color: #fff;
+} */
+
+/* input[type="text"],
+input[type="password"],
+button,
+textarea {
+font-family: 'Nunito', sans-serif;
+font-size: 22px;
+padding: 0.25rem;
+border-radius: 0.5rem;
+} */
+
+label,
+button {
+margin-top: 1rem;
+}
+
+button {
+padding: 0.5rem;
+}
+
+.instructions {
+  font-size: 0.75rem;
+  border-radius: 0.5rem;
+  background: #000;
+  color: #fff;
+  padding: 0.25rem;
+  position: relative;
+  bottom: -10px;
+}
+
+.instructions > svg {
+  margin-right: 0.25rem;
+}
+
+.offscreen {
+  position: absolute;
+  left: -9999px;
+}
+
+.hide {
+  display: none;
+}
+
+.valid {
+  color: limegreen;
+  margin-left: 0.25rem;
+}
+
+.invalid {
+  color: red;
+  margin-left: 0.25rem;
+}
+
+.errmsg {
+  background-color: lightpink;
+  color: firebrick;
+  font-weight: bold;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.line {
+  display: inline-block;
+}
 /*************************
     ALLBOOKS   PAGE
 *************************/

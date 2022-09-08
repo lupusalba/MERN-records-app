@@ -22,7 +22,7 @@ const RegisterForm = () => {
   const [pwdFocus, setPwdFocus] = useState(false)
 
   const [email, setEmail] = useState('')
-  const [validEmail, setValidEmail] = useState(false)
+  const [validEmail, setValidEmail] = useState(true)
   const [emailFocus, setEmailFocus] = useState(false)
 
   const [matchPwd, setMatchPwd] = useState('')
@@ -74,10 +74,9 @@ const RegisterForm = () => {
         JSON.stringify({ userName: user, userEmail: email, password: pwd }),
         {
           headers: { 
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin' : 'http://localhost:8080/register'
+            'Content-Type': 'application/json', 'Access-Control-Allow-Credentials': 'http://localhost:3000'
           },
-          withCredentials: true
+          //withCredentials: true
       }
       )
       console.log(response.data)

@@ -6,14 +6,16 @@ const ModelUser = require('./Models/ModelUser')
 
 const app = express();
 
-// const router = express.router();
-
-const AllowedOrigins = {
-  origin:[ 'http://localhost/8080/register', 'http://localhost/3000/register']
+var corsOptions = {
+  origin: 'http://localhost:3000',
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 
+app.use(cors(corsOptions));
+
+
+
 app.use(express.json());
-app.use(cors(AllowedOrigins));
 
 
 const PORT = 8080;

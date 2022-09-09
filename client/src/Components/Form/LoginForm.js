@@ -1,53 +1,119 @@
-import { useState, useEffect, useRef } from 'react'
-import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from '@fortawesome/fontawesome-svg-core'
+import { useState, useEffect, useRef, useContext } from 'react'
+import { Link } from 'react-router-dom'
+import Axios from 'axios'
+import AuthContext from '../../context/AuthProvider'
 
-const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
-const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
-const REGISTER_URL = '/register';
+
 
 
 const LoginForm = () => {
 
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  })
+  const {setAuth } = useContext(AuthContext);
+  const userRef = useRef();
+  const errRef = useRef();
 
-  const handelChange = () => {
-    console.log('change')
+
+  const [user, setUser] = useState('');
+  const [pwd, setPwd] = useState('');
+  const [errMsg, setErrMsg] = useState('');
+  const [success, setSuccess] = useState(false);
+
+  const LOGIN_URL = '/auth'
+
+  useEffect(() => {
+    userRef.current.focus();
+  }, [])
+
+  useEffect(() => {
+    setErrMsg('');
+  }, [user, pwd])
+
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    try {
+      const response = await Axios.post(LOGIN_URL,
+        JSON.stringify({userNmae: user, password: pwd }),
+        {
+          headers: { 'Content-Type': 'application/json'},
+          //withCredentials: true
+        }
+      );
+
+      const accessToken = response?.data?.accessToken;
+      const roles = response?.data?.roles;
+      setAuth({ user, pwd, roles, accessToken });
+      setSuccess(true);
+      setPwd('');
+      setUser('');
+      console.log(JSON.stringify(response?.data));
+      console.log(JSON.stringify(response));
+    } catch (err) {
+      if(!err?.response){
+        setErrMsg('No Server Response')
+      } else if(err.response?.status === 400) {
+        setErrMsg('Missing Username or Password')
+      } else if (err.response?.status === 401) {
+        setErrMsg('Unathorized')
+      } else {
+        setErrMsg('Login Failed')
+      }
+      errRef.current.focus();
+    }
   }
-  
-  return (
-    <div id="loginFormContainer">
-      <h1>Login</h1>
-      <form id="loginForm">
-        <label htmlFor="email">
-          Email:
-        </label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          value={formData.email}
-          onChange={handelChange}
-          className="loginInput"
-        />
 
-      <label htmlFor="password">
-          Password:
-        </label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          value={formData.password}
-          onChange={handelChange}
-          className="loginInput"
-        />
-        <button className="loginBtn">Login</button>
-      </form>
-    </div>
+  return (
+    <> {
+      success ? (
+        <div>
+          <h1> You are logged in!</h1>
+          <br />
+          <p>
+            <Link to="/home">Go To Home</Link>
+          </p>
+        </div>
+      ) : (
+
+
+        <div id="loginFormContainer">
+
+          <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
+          <h1>Sign in</h1>
+
+          <form id="loginForm" onSubmit={handleSubmit}>
+
+            <label htmlFor="username">Username:</label>
+            <input
+              type="text"
+              id="username"
+              ref={userRef}
+              autoComplete="off"
+              onChange={(e) => setUser(e.target.value)}
+              value={user}
+              required
+            />
+
+            <label htmlFor="password">Password:</label>
+            <input
+              type="password"
+              id="password"
+              onChange={(e) => setPwd(e.target.value)}
+              value={pwd}
+              required
+            />
+
+            <button>Sign in</button>
+          </form>
+
+          <p>Need an Account?<br />
+            <span className="line">
+              <Link to="/register">Register</Link>
+            </span></p>
+
+        </div>
+      )}
+    </>
   )
 }
 

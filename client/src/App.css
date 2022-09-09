@@ -330,12 +330,12 @@ PAGES Style
 /*************************
     LOGIN   COMPONENT
 *************************/
+#loginPage {
+
+}
+
 #loginFormContainer {
-  height: 500px;
-  width: 500px;
-  border: 1px solid darkgrey;
-  background-color: lightgray;
-  display: none;
+
 }
 
 #loginFormContainer > h1 {
@@ -344,22 +344,17 @@ PAGES Style
 
 #loginForm > input,
 #loginForm > label {
-  display: block;
-  margin: 0 auto;
-  width: 80%;
-  height: 25px;
+
 }
 
 .loginBtn {
-  display: block;
-  width: 70%;
-  margin: 20px auto;
-  height: 40px;
+
 }
 
 /*************************
     Register   COMPONENT
 *************************/
+#loginPage,
 #registerPage {
   height: 100vh;
   width: 100vw;
@@ -370,6 +365,8 @@ PAGES Style
   align-items: center;
   flex-wrap: nowrap;
 }
+
+#loginFormContainer,
 #registerFormContainer {
   height: 500px;
   width: 500px;
@@ -389,7 +386,11 @@ PAGES Style
 }
 
 #loginForm {
-
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: stretch;
 }
 
 .loginInput {
@@ -415,16 +416,6 @@ PAGES Style
 
 .registerBtn {
 
-}
-section {
-  width: 100%;
-  max-width: 420px;
-  min-height: 400px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding: 1rem;
-  background-color: rgba(0,0,0,0.4);
 }
 
 /* form {

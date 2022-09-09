@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const bcrypt = require('bcrypt');
 const ModelBook = require('./Models/ModelBook')
 const ModelUser = require('./Models/ModelUser')
 
@@ -36,7 +37,14 @@ mongoose.connect(DB, {
      // USER API
 /////////////////////////////
 app.post('/register', async (req, res) => {
+
+  const { userName, password } = req.body
+  if( !userName || !password ) return res.status(400).json({'message': 'Username and Password are required'});
   const newUser = await ModelUser(req.body)
+
+  const duplicate = await ModelUser.find(person => person.userName === userName)
+  if( duplicate) return res.sendStatus(4090)//conflict
+  
   try {
     await newUser.save()
     res.status(201).json({

@@ -9,32 +9,35 @@ import AuthContext from '../../context/AuthProvider'
 const LoginForm = () => {
 
   const {setAuth } = useContext(AuthContext);
-  const userRef = useRef();
+  // const userRef = useRef();
+  const emailRef = useRef();
   const errRef = useRef();
 
 
   const [user, setUser] = useState('');
+  const [email, setEmail] = useState('');
   const [pwd, setPwd] = useState('');
   const [errMsg, setErrMsg] = useState('');
   const [success, setSuccess] = useState(false);
 
-  const LOGIN_URL = '/auth'
+  const LOGIN_URL = '/login'
 
   useEffect(() => {
-    userRef.current.focus();
+    // useRef.current.focus();
+    emailRef.current.focus();
   }, [])
 
   useEffect(() => {
     setErrMsg('');
-  }, [user, pwd])
+  }, [email, pwd])
 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     
     try {
-      const response = await Axios.post(LOGIN_URL,
-        JSON.stringify({userNmae: user, password: pwd }),
+      const response = await Axios.post("http://localhost:8080/login",
+        JSON.stringify({userEmail: email, password: pwd }),
         {
           headers: { 'Content-Type': 'application/json'},
           //withCredentials: true
@@ -43,7 +46,7 @@ const LoginForm = () => {
 
       const accessToken = response?.data?.accessToken;
       const roles = response?.data?.roles;
-      setAuth({ user, pwd, roles, accessToken });
+      setAuth({ email, pwd, roles, accessToken });
       setSuccess(true);
       setPwd('');
       setUser('');
@@ -83,14 +86,14 @@ const LoginForm = () => {
 
           <form id="loginForm" onSubmit={handleSubmit}>
 
-            <label htmlFor="username">Username:</label>
+            <label htmlFor="username">Email:</label>
             <input
               type="text"
-              id="username"
-              ref={userRef}
+              id="email"
+              ref={emailRef}
               autoComplete="off"
-              onChange={(e) => setUser(e.target.value)}
-              value={user}
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
               required
             />
 

@@ -79,6 +79,7 @@ const RegisterForm = () => {
           //withCredentials: true
       }
       )
+      
       console.log(response.data)
       console.log(JSON.stringify(response))
       setSuccess(true)

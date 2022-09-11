@@ -61,7 +61,7 @@ const deleteBook = async (req, res) => {
   if(!req?.body?._id){
     return res.status(400).json({'message':'ID parameter is required.'});
   }
-  await Book.findByIdAndDelete(req.params._id)
+  await Book.findByIdAndDelete(req.body._id)
 
   try {
     res.status(204).json({

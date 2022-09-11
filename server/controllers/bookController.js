@@ -37,7 +37,10 @@ const createNewBook = async (req, res) => {
 }
 
 const updateBook = async (req, res) => {
-  const updatedBook = await Book.findByIdAndUpdate(req.params._id, req.body, {
+  if(!req?.body?._id){
+    return res.status(400).json({'message':'ID parameter is required.'});
+  }
+  const updatedBook = await Book.findByIdAndUpdate(req.body._id, req.body, {
     new: true,
     runValidators: true
   })
@@ -55,7 +58,10 @@ const updateBook = async (req, res) => {
 }
 
 const deleteBook = async (req, res) => {
-  await Book.findByIdAndDelete(req.params.id)
+  if(!req?.body?._id){
+    return res.status(400).json({'message':'ID parameter is required.'});
+  }
+  await Book.findByIdAndDelete(req.params._id)
 
   try {
     res.status(204).json({

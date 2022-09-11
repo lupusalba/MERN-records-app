@@ -6,6 +6,14 @@ const UserSchema = new mongoose.Schema({
     required: [true, 'Please add a username'],
     unique: true
   },
+  roles: {
+    User: {
+      type: 'Number',
+      default: 2001
+    },
+    Editor: Number,
+    Admin: Number
+  },
   userEmail : {
     type: 'String',
     required: [true, 'Please add an Email'],
@@ -14,7 +22,8 @@ const UserSchema = new mongoose.Schema({
   password : {
     type: 'String',
     required: [true, 'Please add a password']
-  }
+  },
+  refreshToken : 'String'
 },
 {
   timestamps: true

@@ -2,8 +2,11 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken')
+require('dotenv').config()
 const ModelBook = require('./Models/ModelBook')
 const User = require('./Models/ModelUser')
+
 
 const app = express();
 
@@ -69,6 +72,7 @@ app.post('/register', async (req, res) => {
 })
 
 
+
 //////////        USER AUTHENTICATION - USER LOGIN
 app.post('/login', async (req, res) => {
 
@@ -83,14 +87,38 @@ app.post('/login', async (req, res) => {
   // evaluate password
   const match = await bcrypt.compare(password, foundUser.password)
   if (match){
-    res.json({'success': `User ${userEmail} ise logged in!`})
+    //res.json({'success': `User ${userEmail} ise logged in!`})
 
     //// create jwt
+    const accessToken = jwt.sign(
+      { "userEmail": foundUser.userEmail },
+      process.env.ACCESS_TOKEN_SECRET,
+      { expiresIn: '30s' } // 5 or to 15min to be in production 
+    );
+    const refreshToken = jwt.sign(
+      { "userEmail": foundUser.userEmail },
+      process.env.REFRESH_TOKEN_SECRET,
+      { expiresIn: '1d' }
+    );
+    console.log(refreshToken)
+    // saving refresh token with current user
+    foundUser.refreshToken = refreshToken;
+    const result = await foundUser.save();
+    console.log(result)
 
+    // Creates Secure Cookie with refresh token
+    res.cookie('jwt', refreshToken, { httpOnly: true, secure: true, sameSite: 'None', maxAge: 24 * 60 * 60 * 1000 });
+
+    res.json({ accessToken });
   } else {
     res.sendStatus(401)// unauthorized
   }
 })
+
+
+
+
+
 /////////////////////////////
      // BOOK API
 /////////////////////////////

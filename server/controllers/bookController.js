@@ -19,6 +19,9 @@ const getAllBooks = async (req, res) => {
 }
 
 const createNewBook = async (req, res) => {
+  if(!req?.body){
+    return res.status(400).json({'message':'Required fields not provided, try again'});
+  }
   const newBook = new Book(req.body)
   try {
     await newBook.save()

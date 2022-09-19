@@ -1,15 +1,23 @@
 const User = require('../Models/ModelUser')
-const jwt = require('jsonwebtoken')
-require('dotenv').config()
+const jwt = require('jsonwebtoken');
 
 const handleRefreshToken = (req, res) => {
   const { cookies } =  req.cookies
-  if(!cookies?.jwt) return res.status(401)
+  if(!cookies?.jwt) return res.sendStatus(401)
   console.log(cookies.jwt);
+
+  console.log("have coockie");
+
   const refreshToken = cookies.jwt;
   //check if user exists
   const foundUser = User.findOne({refreshToken: refreshToken}).exec();
-  if (!foundUser)return res.status(403)// forbidden
+
+  console.log(foundUser);
+
+  if (!foundUser) {
+    console.log("user not found");
+    return res.sendStatus(403)// forbidden
+  }
   
   // evaluate jwt
   jwt.verify(

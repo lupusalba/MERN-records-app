@@ -14,7 +14,12 @@ const handleNewUser =  async (req, res) => {
   try {
     // enctypt password
     const hashedPassword = await bcrypt.hash(password, 10)
-    const newUser =  User({userName, userEmail, 'password': hashedPassword})
+    const newUser =  User({
+      userName,
+      "roles": { "User" : 2001 },
+      userEmail,
+      'password': hashedPassword
+    })
     //store new user
     await newUser.save()
     res.status(201).json({

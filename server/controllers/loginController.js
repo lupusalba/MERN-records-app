@@ -14,11 +14,17 @@ const handleLogin = async (req, res) => {
   // evaluate password
   const match = await bcrypt.compare(password, foundUser.password)
   if (match){
+    const roles = Object.values(foundUser.roles)
     //res.json({'success': `User ${userEmail} ise logged in!`})
 
     //// create jwt
     const accessToken = jwt.sign(
-      { "userEmail": foundUser.userEmail },
+      {
+        "UserInfo": {
+          "userEmail": foundUser.userEmail,
+          "roles": roles
+        },
+      },
       process.env.ACCESS_TOKEN_SECRET,
       { expiresIn: '1h' } // 5 or to 15min to be in production 
     );

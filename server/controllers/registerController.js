@@ -8,25 +8,37 @@ const handleNewUser =  async (req, res) => {
   //const newUser = await ModelUser(req.body)
 
 
-  //const duplicate = await ModelUser.find(person => person.userName === userName || person.email === email)
-  //if( duplicate) return res.sendStatus(409)//conflict
+  const duplicate = await User.findOne({userEmail : userEmail}).exec();
+  if( duplicate) return res.sendStatus(409)//conflict
   
   try {
-    // enctypt password
+    // encrypt password
     const hashedPassword = await bcrypt.hash(password, 10)
-    const newUser =  User({
-      userName,
-      "roles": { "User" : 2001 },
-      userEmail,
-      'password': hashedPassword
+
+    //create new user
+    const result = await User.create({
+      "userName": userName,
+      "userEmail": userEmail,
+      "password": hashedPassword
     })
-    //store new user
-    await newUser.save()
-    res.status(201).json({
-      status: 'success',
-      message: `New User ${userName} created`,
-      data: { newUser }
-    })
+    console.log(result)
+
+    res.status(201).json({'success': `New User ${userEmail} created`});
+
+
+    // const newUser =  User({
+    //   userName,
+    //   "roles": { "User" : 2001 },
+    //   userEmail,
+    //   'password': hashedPassword
+    // })
+    // //store new user
+    // await newUser.save()
+    // res.status(201).json({
+    //   status: 'success',
+    //   message: `New User ${userName} created`,
+    //   data: { newUser }
+    // })
     
   } catch (err) {
     res.status(500).json({

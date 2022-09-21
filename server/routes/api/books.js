@@ -8,7 +8,7 @@ const verifyRoles = require('../../middleware/verifyRoles')
 router.route('/')
   .get(bookController.getAllBooks)
   .post(verifyRoles(ROLES_LIST.Admin, ROLES_LIST.Editor), bookController.createNewBook)
-  .patch(verifyRoles(ROLES_LIST.Editor), bookController.updateBook)
+  .patch(verifyRoles(ROLES_LIST.Admin, ROLES_LIST.Editor), bookController.updateBook)
   .delete(verifyRoles(ROLES_LIST.Admin), bookController.deleteBook)
 
 router.route('/:_id')

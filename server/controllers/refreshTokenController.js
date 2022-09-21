@@ -1,18 +1,17 @@
 const User = require('../Models/ModelUser')
 const jwt = require('jsonwebtoken');
 
-const handleRefreshToken = (req, res) => {
+const handleRefreshToken = async (req, res) => {
   const { cookies } =  req.cookies
-  if(!cookies?.jwt) return res.sendStatus(401)
-  console.log(cookies.jwt);
-
-  console.log("have coockie");
+  if(!cookies?.jwt) {
+    console.log('no jwt cookie found')
+    return res.sendStatus(401)
+  }
 
   const refreshToken = cookies.jwt;
+  
   //check if user exists
-  const foundUser = User.findOne({refreshToken: refreshToken}).exec();
-
-  console.log(foundUser);
+  const foundUser = await User.findOne({ refreshToken }).exec();
 
   if (!foundUser) {
     console.log("user not found");
@@ -22,7 +21,7 @@ const handleRefreshToken = (req, res) => {
   // evaluate jwt
   jwt.verify(
     refreshToken,
-    process.env.ACCESS_TOKEN_SECRET,
+    process.env.REFRESH_TOKEN_SECRET,
     (err, decoded) => {
       if(err || foundUser.userEmail !== decoded.userEmail) return res.sendStatus(403);
       const roles = Object.values(foundUser.roles)
@@ -31,12 +30,12 @@ const handleRefreshToken = (req, res) => {
           "UserInfo": {
             "userEmail": decoded.userEmail,
             "roles": roles
-          },
+          }
         },
         process.env.ACCESS_TOKEN_SECRET,
         { expiresIn: '1h'} // to be 5min in production
       );
-      res.json({ accessToken})
+      res.json({ roles, accessToken})
     }
   );
 

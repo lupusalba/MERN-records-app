@@ -27,7 +27,8 @@ const BookScheme = new mongoose.Schema({
     required: false
   },
   lastUpdated : {
-    type: 'Date',
+    type: 'Date', 
+    default: Date.now,
     required: true
   },
   alternativeNames : {
@@ -63,6 +64,6 @@ const BookScheme = new mongoose.Schema({
   timestamps: true
 })
 
-const ModelBook = mongoose.model('ModelBook', BookScheme)
+const Book = mongoose.model('Book', BookScheme)
 
-module.exports = ModelBook
+module.exports = Book

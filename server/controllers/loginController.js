@@ -1,21 +1,23 @@
 const User = require('../Models/ModelUser')
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken')
 
 const handleLogin = async (req, res) => {
-  console.log(req.body)
-  const { password, userEmail } = await req.body
-  if( !password || !userEmail )return res.status(400).json({'message': 'E-mail and Password are required'});
+  const { password, userEmail } = req.body
+  if( !password || !userEmail ) return res.status(400).json({'message': 'E-mail and Password are required'});
   
   //check if user exists
   const foundUser = await User.findOne({userEmail: userEmail}).exec();
-  if (!foundUser)return res.status(401)// unauthorized
-  console.log("bingo")
+  if (!foundUser){
+    console.log('user not found');
+    return res.sendStatus(401)// unauthorized
+  }
+
   // evaluate password
   const match = await bcrypt.compare(password, foundUser.password)
   if (match){
-    const roles = Object.values(foundUser.roles)
-    //res.json({'success': `User ${userEmail} ise logged in!`})
+    const roles = Object.values(foundUser.roles).filter(Boolean);
+    console.log( `User ${userEmail} ise logged in!`)
 
     //// create jwt
     const accessToken = jwt.sign(
@@ -33,16 +35,18 @@ const handleLogin = async (req, res) => {
       process.env.REFRESH_TOKEN_SECRET,
       { expiresIn: '1d' }
     );
-    console.log(refreshToken)
     // saving refresh token with current user
     foundUser.refreshToken = refreshToken;
     const result = await foundUser.save();
-    console.log(result)
+      console.log(result)
+      console.log(roles)
 
-    // Creates Secure Cookie with refresh token
-    res.cookie('jwt', refreshToken, { httpOnly: true, secure: true, sameSite: 'None', maxAge: 24 * 60 * 60 * 1000 });
+        // Creates Secure Cookie with refresh token
+        res.cookie('jwt', refreshToken, { httpOnly: true,  sameSite: 'None', maxAge: 24 * 60 * 60 * 1000 });//secure: true,
 
-    res.json({ accessToken });
+        // Send authorization roles and access token to user
+        res.json({ roles, accessToken });
+
   } else {
     res.sendStatus(401)// unauthorized
   }

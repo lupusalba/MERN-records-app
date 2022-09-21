@@ -1,9 +1,9 @@
+require('dotenv').config()
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 //const bcrypt = require('bcrypt');
 //const jwt = require('jsonwebtoken')
-require('dotenv').config()
 //const Book = require('./Models/ModelBook')
 //const User = require('./Models/ModelUser')
 const app = express();
@@ -11,19 +11,23 @@ const corsOptions = require('./config/corsOptions');
 const verifyJWT = require('./middleware/verifyJWT');
 const cookieParser = require('cookie-parser');
 const credentials = require('./middleware/credentials')
+const connectDB = require('./config/dbConect')
 const PORT = 8080
 
-app.listen(PORT, () => {
-  console.log('listening on port ' + PORT);
-});
+
+connectDB();
+
+// app.listen(PORT, () => {
+//   console.log('listening on port ' + PORT);
+// });
 
 //conect to database
-const DB = 'mongodb+srv://admin:2khpm57pTE6y2Rg@readersrecords.grfazqk.mongodb.net/bookData?retryWrites=true&w=majority';
-mongoose.connect(DB, {
-  useNewUrlParser: true
-}).then(() => {
-  console.log('DB CONECTED...')
-});
+// const DB = 'mongodb+srv://admin:2khpm57pTE6y2Rg@readersrecords.grfazqk.mongodb.net/bookData?retryWrites=true&w=majority';
+// mongoose.connect(DB, {
+//   useNewUrlParser: true
+// }).then(() => {
+//   console.log('DB CONECTED...')
+// });
 
 // Handle options credentials check - before CORS!
 // and fetch cookies credentials requirement
@@ -57,6 +61,13 @@ app.all('*', (req, res) => {
   
 });
 
+
+mongoose.connection.once('open', () => {
+  console.log('Connected to MongoDB');
+  app.listen(PORT, () => {
+    console.log('listening on port ' + PORT);
+  });
+})
 
 
 // var corsOptions = {

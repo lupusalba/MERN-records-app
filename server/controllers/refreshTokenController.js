@@ -1,14 +1,10 @@
 const User = require('../Models/ModelUser')
 const jwt = require('jsonwebtoken');
 
-const handleRefreshToken = async (req, res) => {
-  const { cookies } =  req.cookies
-  if(!cookies?.jwt) {
-    console.log('no jwt cookie found')
-    return res.sendStatus(401)
-  }
-
-  const refreshToken = cookies.jwt;
+const handleRefreshToken = async(req, res) => {
+  const cookies = req.cookies;
+    if (!cookies?.jwt) return res.sendStatus(401);
+    const refreshToken = cookies.jwt;
   
   //check if user exists
   const foundUser = await User.findOne({ refreshToken }).exec();

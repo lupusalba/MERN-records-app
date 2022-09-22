@@ -29,7 +29,7 @@ const BookScheme = new mongoose.Schema({
   lastUpdated : {
     type: 'Date', 
     default: Date.now,
-    required: true
+    required: false
   },
   alternativeNames : {
     type: 'Array',

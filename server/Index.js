@@ -10,7 +10,7 @@ const mongoose = require('mongoose');
 const connectDB = require('./config/dbConnect')
 const PORT = 8080
 
-// conect to DB
+// connect to DB
 connectDB();
 
 // Handle options credentials check - before CORS!

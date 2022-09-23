@@ -1,8 +1,9 @@
 const Book = require('../Models/ModelBook')
 
 const getAllBooks = async (req, res) => {
-  const allBooks = await Book.find({})
-  if (!allBooks) return res.status(204).json({ 'massage': 'No Boos Found' });
+  console.log(req.body.user)
+  const allBooks = await Book.find({user: req.body.user})
+  if (!allBooks) return res.status(204).json({ 'massage': 'No Books Found' });
   //res.json({ allBooks })
 
   try {
@@ -80,6 +81,9 @@ const deleteBook = async (req, res) => {
 }
 
 const getBook = async (req, res) => {
+  if(!req?.params?._id){
+    return res.status(400).json({'message':'ID parameter is required.'});
+  }
   const oneBook = await Book.findById(req.params._id)
   try {
     res.status(200).json({

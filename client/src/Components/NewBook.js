@@ -4,6 +4,7 @@ import Axios from 'axios'
 const NewBook = () => {
 
   const [newBook, setNewBook] = useState({
+    user: "",
     title: "",
     author: "",
     description: "",
@@ -21,6 +22,7 @@ const NewBook = () => {
 
   const createNewBook = () => {
     Axios.post("http://localhost:8080/new-book", {
+      user: "",
       title: newBook.title,
       author: newBook.author,
       description: newBook.description,

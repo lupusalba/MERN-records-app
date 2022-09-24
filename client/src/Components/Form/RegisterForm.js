@@ -1,3 +1,4 @@
+import React from 'react'
 import { useState, useEffect, useRef } from 'react'
 import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -76,7 +77,7 @@ const RegisterForm = () => {
           headers: { 
             'Content-Type': 'application/json', 'Access-Control-Allow-Credentials': 'http://localhost:3000'
           },
-          //withCredentials: true
+          withCredentials: true
       }
       )
       

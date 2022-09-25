@@ -1,4 +1,6 @@
 import {Link} from 'react-router-dom'
+import React from 'react'
+
 const Book = (book) => {
   return (
     <Link to={`/book/${book.book._id}`} className="book">

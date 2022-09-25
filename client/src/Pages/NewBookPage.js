@@ -1,5 +1,7 @@
 import NewBook from "../Components/NewBook"
 
+import React from 'react'
+
 const NewBookPage = () => {
 
 

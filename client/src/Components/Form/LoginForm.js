@@ -11,7 +11,7 @@ import React from 'react'
 const LoginForm = () => {
 
   const { setAuth } = useAuth();
-  
+
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
@@ -48,17 +48,18 @@ const LoginForm = () => {
         }
       );
 
+
       console.log(JSON.stringify(response?.data));
 
       const accessToken = response?.data?.accessToken;
       const roles = response?.data?.roles;
-      
+
       setAuth({ email, pwd, roles, accessToken });
       setPwd('');
       setEmail('');
 
-      navigate('/links', { replace: true });
-      
+      navigate(`/user/${email}`, { replace: true });
+
       console.log(JSON.stringify(response));
 
     } catch (err) {

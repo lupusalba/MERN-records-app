@@ -9,6 +9,7 @@ import UserPage from './Pages/UserPage'
 import LayoutTest from './Pages/LayoutTest'
 import AdminPage from './Pages/AdminPage'
 import Error from './Pages/ErrorNotFound'
+import AllBooks from './Pages/AllBooksPage'
 import './App.css';
 import './ResponsiveStyle.css';
 import RequireAuth from './Components/RequireAuth'
@@ -39,8 +40,8 @@ function App() {
           {/* we want to protect these routes */}
           <Route element={<RequireAuth allowedRoles={[ROLES.User]} />}>
             <Route path="/" element={<Home />} />
-            <Route path="/users" element={<UserPage />} />
-            <Route path="/books" element={<Home />} />
+            <Route path="/user/:email" element={<UserPage />} />
+            <Route path="/books" element={<AllBooks />} />
           </Route>
 
 

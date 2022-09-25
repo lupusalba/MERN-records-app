@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import Book from '../Components/Book'
-import Axios from 'axios'
+import axiosPrivate from '../api/axios'
 import React from 'react'
+import Axios from 'axios'
 
 
 
@@ -19,17 +20,17 @@ import React from 'react'
   const Books = (book) => {
   const [listOfBooks, setListOfBooks] = useState([])
   
-  useEffect(() => {
-    Axios.get("http://localhost:8080/books").then((res) => {
-      setListOfBooks(res.data.data.allBooks)
-    })
-  }, [])
+  useEffect(async() => {
+    Axios.get("http://localhost:8080/books", {"user": "632b74f0840ccfab4f7c8ee5"}).then((res) => {
+      setListOfBooks(res.data.data.allBooks);
+    });
+  }, []);
 
 
-  const deleteBook = (_id) => {
-    Axios.delete(`http://localhost:8080/delete-book/${_id}`)
-    console.log('deleted ' + _id)
-  }
+  // const deleteBook = (_id) => {
+  //   Axios.delete(`http://localhost:8080/delete-book/${_id}`)
+  //   console.log('deleted ' + _id)
+  // }
 
 
   return (

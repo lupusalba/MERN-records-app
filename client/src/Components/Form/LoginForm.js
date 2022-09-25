@@ -16,24 +16,24 @@ const LoginForm = () => {
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
 
-  const emailRef = useRef();
+  const userRef = useRef();
   const errRef = useRef();
 
 
-  const [email, setEmail] = useState('');
+  const [username, setUserName] = useState('');
   const [pwd, setPwd] = useState('');
   const [errMsg, setErrMsg] = useState('');
 
   const LOGIN_URL = '/login'
 
   useEffect(() => {
-    // useRef.current.focus();
-    emailRef.current.focus();
+    userRef.current.focus();
+    // emailRef.current.focus();
   }, [])
 
   useEffect(() => {
     setErrMsg('');
-  }, [email, pwd])
+  }, [username, pwd])
 
 
   const handleSubmit = async (e) => {
@@ -41,7 +41,7 @@ const LoginForm = () => {
 
     try {
       const response = await Axios.post("http://localhost:8080/login",
-        JSON.stringify({ userEmail: email, password: pwd }),
+        JSON.stringify({ userName: username, password: pwd }),
         {
           headers: { 'Content-Type': 'application/json' },
           withCredentials: true
@@ -50,15 +50,19 @@ const LoginForm = () => {
 
 
       console.log(JSON.stringify(response?.data));
+      
+
+      const userID = response?.data?.userPublicData._id
+      console.log(userID);
 
       const accessToken = response?.data?.accessToken;
       const roles = response?.data?.roles;
 
-      setAuth({ email, pwd, roles, accessToken });
+      setAuth({ username, pwd, roles, accessToken });
       setPwd('');
-      setEmail('');
+      setUserName('');
 
-      navigate(`/user/${email}`, { replace: true });
+      navigate(`/user/${userID}`, { replace: true });
 
       console.log(JSON.stringify(response));
 
@@ -85,7 +89,7 @@ const LoginForm = () => {
 
       <form id="loginForm" onSubmit={handleSubmit}>
 
-        <label htmlFor="username">Email:</label>
+        {/* <label htmlFor="username">Email:</label>
         <input
           type="text"
           id="email"
@@ -93,6 +97,17 @@ const LoginForm = () => {
           autoComplete="off"
           onChange={(e) => setEmail(e.target.value)}
           value={email}
+          required
+        /> */}
+
+        <label htmlFor="username">username:</label>
+        <input
+          type="text"
+          id="username"
+          ref={userRef}
+          autoComplete="off"
+          onChange={(e) => setUserName(e.target.value)}
+          value={username}
           required
         />
 

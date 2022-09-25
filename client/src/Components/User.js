@@ -1,8 +1,8 @@
 import React from 'react'
 
+ function User({userID}){
+  console.log(userID)
 
-
-const User = () => {
   return (
     <div>
       user profile

@@ -57,7 +57,7 @@ const LoginForm = () => {
       setPwd('');
       setEmail('');
 
-      navigate('/user', { replace: true });
+      navigate('/links', { replace: true });
       
       console.log(JSON.stringify(response));
 

@@ -7,15 +7,8 @@ import UnauthorizedPage from './Pages/UnauthorizedPage'
 import LinksTesting from './Pages/LinksTesting'
 import UserPage from './Pages/UserPage'
 import LayoutTest from './Pages/LayoutTest'
-
-import React from 'react'
-
-import AllBooksPage from './Pages/AllBooksPage';
+import AdminPage from './Pages/AdminPage'
 import Error from './Pages/ErrorNotFound'
-import BookPage from './Pages/BookPage'
-import UpdateBookPage from './Pages/UpdateBookPage'
-import NewBook from './Pages/NewBookPage'
-import DeleteBook from './Pages/DeleteBook'
 import './App.css';
 import './ResponsiveStyle.css';
 import RequireAuth from './Components/RequireAuth'
@@ -27,49 +20,65 @@ const ROLES = {
 }
 function App() {
 
-
-  // const [listOfBooks, setListOfBooks] = useState([])
-  
-  // useEffect(() => {
-  //   Axios.get("http://localhost:3000/").then((response) => {
-  //     setListOfBooks([response.data])
-  //   })
-  //   console.log("from app.js")
-  //   console.log(listOfBooks)
-  // }, [])
-
   return (
     <div className="App">
 
+
       <Routes>
         <Route path="/" element={<LayoutTest />}>
-          {/* Public Routes */}
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/links" element={<LinksTesting />} />
-          <Route path="/unauthorized" element={<UnauthorizedPage />} />
+          {/* public routes */}
+          <Route path="login" element={<LoginPage />} />
+          <Route path="register" element={<RegisterPage />} />
+          <Route path="links" element={<LinksTesting />} />
+          <Route path="unauthorized" element={<UnauthorizedPage />} />
+          <Route path="/" element={<Home />} />
+            {/* <Route path="/user" element={<UserPage />} />
+            <Route path="/admin" element={<AdminPage />} />
+            <Route path="/books" element={<Home />} /> */}
 
-          {/* Protected Routes */}
-          <Route element={<RequireAuth allowedRoles={[ROLES.User]}/>} >
-            <Route path="/user/:_id" element={<UserPage />} />
-          </Route>
-          <Route element={<RequireAuth allowedRoles={[ROLES.User]}/>} >
-            <Route path="/user" element={<UserPage />} />
-          </Route>
-          <Route element={<RequireAuth allowedRoles={[ROLES.User]}/>} >
-            <Route path="/user/:_id/books" element={<AllBooksPage/>} />
-          </Route>
-          <Route element={<RequireAuth allowedRoles={[ROLES.Admin]}/>} >
-            <Route path="/admin" element={<AllBooksPage/>} />
+          {/* we want to protect these routes */}
+          <Route element={<RequireAuth allowedRoles={[ROLES.User]} />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/users" element={<UserPage />} />
+            <Route path="/books" element={<Home />} />
           </Route>
 
-          {/* <Route path="/" element={<Home />} />
+
+          <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
+            <Route path="/admin" element={<AdminPage />} />
+          </Route>
+
+          {/* catch all */}
+          <Route path="*" element={<Error />} />
+        </Route>
+      </Routes>
+
+      {/* <Routes>
+        <Route path="/" element={<LayoutTest />}>
+          {/* Public Routes 
+          <Route path="login" element={<LoginPage />} />
+          <Route path="register" element={<RegisterPage />} />
+          <Route path="links" element={<LinksTesting />} />
+          <Route path="unauthorized" element={<UnauthorizedPage />} />
+
+          {/* Protected Routes 
+          <Route element={<RequireAuth allowedRoles={[ROLES.User]} />} >
+            <Route path="home" element={<Home />} />
+          </Route>
+          <Route element={<RequireAuth allowedRoles={[ROLES.User]} />} >
+            <Route path="users" element={<UserPage />} />
+          </Route>
+          <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />} >
+            <Route path="admin" element={<AdminPage />} />
+          </Route>
+
+          <Route path="/" element={<Home />} />
           <Route path="/user/:_id" element={<UserPage />} />
-          <Route path="/books" element={<AllBooksPage/>} /> */}
+          <Route path="/books" element={<AllBooksPage/>} />
 
           <Route path="/*" element={<Error />} />
         </Route>
-      </Routes>
+      </Routes> */}
 
       {/* <Router>
           <div className="mainNav">

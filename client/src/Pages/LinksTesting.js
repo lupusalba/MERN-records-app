@@ -4,11 +4,13 @@ import React from 'react'
 
 const LinksTesting = () => {
   return (
-    <div>
-      <Link to={`/login`} />
-      <Link to={`/register`} />
-      <Link to={`/unauthorized`} />
-      <Link to={`/books`} />
+    <div className="linkTesting">
+      <Link to={`/login`}>login</Link>
+      <Link to={`/register`}>register</Link>
+      <Link to={`/unauthorized`} >Unathorized</Link>
+      <Link to={`/books`} >Books</Link>
+      <Link to={`/admin`} >admin</Link>
+      <Link to={`/users`} >user</Link>
     </div>
   )
 }

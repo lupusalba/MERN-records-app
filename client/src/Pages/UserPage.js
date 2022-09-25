@@ -1,12 +1,12 @@
-import AllBooks from '../Components/Books'
 
+import Users from '../Components/Users'
 import React from 'react'
 
 const UserPage = () => {
   return (
     <div>
       <h1>User Profile</h1>
-      <AllBooks />
+      <Users />
     </div>
   )
 }

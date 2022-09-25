@@ -1,5 +1,5 @@
 
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
 import LoginPage from './Pages/LoginPage'
 import RegisterPage from './Pages/RegisterPage'
 import Home from './Pages/Home'
@@ -24,7 +24,16 @@ function App() {
   return (
     <div className="App">
 
-
+<div className="linkTesting">
+      <Link to={`/login`}>login</Link>
+      <Link to={`/logout`} >logout</Link>
+      <Link to={`/register`}>register</Link>
+      <Link to={`/unauthorized`} >Unathorized</Link>
+      <Link to={`/books`} >Books</Link>
+      <Link to={`/admin`} >admin</Link>
+      <Link to={`/user`} >user</Link>
+      <Link to={`/`} >home</Link>
+    </div>
       <Routes>
         <Route path="/" element={<LayoutTest />}>
           {/* public routes */}

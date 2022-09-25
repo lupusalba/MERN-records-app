@@ -49,7 +49,7 @@ const handleLogin = async (req, res) => {
       }
 
         // Creates Secure Cookie with refresh token
-        res.cookie('jwt', refreshToken, { httpOnly: true,  sameSite: 'None', maxAge: 24 * 60 * 60 * 1000 });//secure: true,
+        res.cookie('jwt', refreshToken, { httpOnly: true, secure: true, sameSite: 'None', maxAge: 24 * 60 * 60 * 1000 });
         // Send authorization roles and access token to user
         res.json({ userPublicData, roles, accessToken });
   } else {

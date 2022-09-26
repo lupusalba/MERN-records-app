@@ -12,14 +12,14 @@ const UpdateBook = ({book}) => {
     author: "" || book.author,
     description: "" || book.description,
     status: "" || book.status,
-    heroImage: "",
-    lastUpdated: "",
-    alternativeNames: [],
-    tags: [],
-    category: [],
-    chapters: 0,
-    volumes: 0,
-    links: []
+    heroImage: "" || book.heroImage,
+    lastUpdated: "" || book.lastUpdated,
+    alternativeNames: [] || book.alternativeNames,
+    tags: [] || book.tags,
+    category: [] || book.category,
+    chapters: 0 || book.chapters,
+    volumes: 0 || book.volumes,
+    links: [] || book.links
   })
 
 

@@ -43,11 +43,12 @@ const createNewBook = async (req, res) => {
 }
 
 const updateBook = async (req, res) => {
-  if(!req?.query?._id){
+  if(!req?.query?.id){
     return res.status(400).json({'message':'ID parameter is required.'});
   }
-  console.log("update book: " + req.query._id);
-  const updatedBook = await Book.findByIdAndUpdate(req.query._id, req.body, {
+  console.log("update book: " + req.query.id);
+  console.log(JSON.stringify(req.body))
+  const updatedBook = await Book.findByIdAndUpdate(req.query.id, req.body, {
     new: true,
     runValidators: true
   })

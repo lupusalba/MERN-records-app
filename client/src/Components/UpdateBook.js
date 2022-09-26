@@ -7,11 +7,11 @@ const UpdateBook = ({book}) => {
   const [on, setOn] = useState(false)
 
   const [oldBook, setOldBook] = useState({
-    user: "",
-    title: "",
-    author: "",
-    description: "",
-    status: "",
+    user: book.user,
+    title: "" || book.title,
+    author: "" || book.author,
+    description: "" || book.description,
+    status: "" || book.status,
     heroImage: "",
     lastUpdated: "",
     alternativeNames: [],
@@ -24,8 +24,8 @@ const UpdateBook = ({book}) => {
 
 
   const updateOldBook = async(e) => {
-    let _id = book._id
-    let updatedBook = await axiosPrivate.patch(`http://localhost:8080/books/:${_id}`, oldBook)
+    let id = book._id
+    let updatedBook = await axiosPrivate.patch(`http://localhost:8080/books`, oldBook, {params: {id: id}})
     console.log(updatedBook)
   }
 

@@ -3,6 +3,7 @@ import User from '../Components/User';
 import {useParams} from 'react-router-dom';
 import React from 'react';
 import Books from '../Components/Books'
+import NewBook from '../Components/NewBook'
 
 const UserPage = () => {
 
@@ -13,9 +14,10 @@ const UserPage = () => {
 
   return (
     <div>
-      <h1>User Profile</h1>
+      <h1>User Page</h1>
       <User userID={userID}/>
       <Books id={userID} />
+      <NewBook userID={userID}/>
     </div>
   )
 }

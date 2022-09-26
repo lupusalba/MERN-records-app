@@ -2,11 +2,12 @@ import { useState, useEffect } from 'react'
 import Axios from 'axios'
 import React from 'react'
 
-const UpdateBook = (bookID) => {
-
+const UpdateBook = ({book}) => {  
+  console.log(book);
   const [on, setOn] = useState(false)
 
   const [oldBook, setOldBook] = useState({
+    user: "",
     title: "",
     author: "",
     description: "",
@@ -22,23 +23,11 @@ const UpdateBook = (bookID) => {
   })
 
 
-  console.log(bookID.bookID)
-  useEffect(() => {
-    Axios.get(`http://localhost:8080/book/${bookID.bookID}`).then((res) => {
-      setOldBook(res.data.data.oneBook)
-    })
-  }, [])
-
-
-
-
-
-
-
   const updateOldBook = async(e) => {
-    let _id = bookID.bookID
-    let z = await Axios.patch(`http://localhost:8080/update-book/${_id}`, oldBook)
-    console.log(z)
+    let _id = book._id;
+    console.log("from update book js id: " + _id);
+    // let updatedBook = await Axios.patch(`http://localhost:8080/books/${_id}`, oldBook)
+    // console.log(updatedBook)
   }
 
 
@@ -55,12 +44,10 @@ const UpdateBook = (bookID) => {
     console.log(oldBook)
   }
 
-
-  console.log(oldBook.author)
   return (
     <div className="newBook">
 
-      <form onSubmit={() => {updateOldBook(oldBook._id)}}>
+      <form onSubmit={() => {updateOldBook()}}>
 
         <label htmlFor="title">Title</label>
         <input

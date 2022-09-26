@@ -10,6 +10,9 @@ import LayoutTest from './Pages/LayoutTest'
 import AdminPage from './Pages/AdminPage'
 import Error from './Pages/ErrorNotFound'
 import AllBooks from './Pages/AllBooksPage'
+import BookPage from './Pages/BookPage'
+import NewBookPage from './Pages/NewBookPage'
+import UpdateBookPage from './Pages/UpdateBookPage'
 import './App.css';
 import './ResponsiveStyle.css';
 import RequireAuth from './Components/RequireAuth'
@@ -32,6 +35,7 @@ function App() {
       <Link to={`/books`} >Books</Link>
       <Link to={`/admin`} >admin</Link>
       <Link to={`/user`} >user</Link>
+      <Link to={`/new-book`} >new book</Link>
       <Link to={`/`} >home</Link>
     </div>
       <Routes>
@@ -51,7 +55,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/user/:userID" element={<UserPage />} />
             <Route path="/books" element={<AllBooks />} />
-            <Route path="/books/:id" element={<AllBooks />} />
+            <Route path="/books/:id" element={<BookPage />} />
           </Route>
 
 

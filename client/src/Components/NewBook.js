@@ -3,10 +3,11 @@ import Axios from 'axios'
 
 import React from 'react'
 
-const NewBook = () => {
+const NewBook = ({userID}) => {
+  console.log("from newbook.js " + userID);
 
   const [newBook, setNewBook] = useState({
-    user: "",
+    user: userID,
     title: "",
     author: "",
     description: "",
@@ -23,8 +24,8 @@ const NewBook = () => {
 
 
   const createNewBook = () => {
-    Axios.post("http://localhost:8080/new-book", {
-      user: "",
+    Axios.post("http://localhost:8080/books", {
+      user: userID,
       title: newBook.title,
       author: newBook.author,
       description: newBook.description,
@@ -38,7 +39,7 @@ const NewBook = () => {
       volumes: newBook.volumes,
       links: newBook.links
     }).then(response => {
-      console.log("succes")
+      console.log("success")
     })
   }
 

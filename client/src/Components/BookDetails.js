@@ -5,6 +5,9 @@ import React from 'react'
 
 const BookDetails = (book) => {
 
+
+  console.log(book)
+
   const deleteBook = () => {
     Axios.delete(`http://localhost:8080/delete-book/${book.book._id}`)
     navigate(-1)

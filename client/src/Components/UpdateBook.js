@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
-import Axios from 'axios'
+import axiosPrivate from '../api/axios'
 import React from 'react'
 
-const UpdateBook = ({book}) => {  
-  console.log(book);
+const UpdateBook = ({book}) => { 
+
   const [on, setOn] = useState(false)
 
   const [oldBook, setOldBook] = useState({
@@ -24,10 +24,9 @@ const UpdateBook = ({book}) => {
 
 
   const updateOldBook = async(e) => {
-    let _id = book._id;
-    console.log("from update book js id: " + _id);
-    // let updatedBook = await Axios.patch(`http://localhost:8080/books/${_id}`, oldBook)
-    // console.log(updatedBook)
+    let _id = book._id
+    let updatedBook = await axiosPrivate.patch(`http://localhost:8080/books/:${_id}`, oldBook)
+    console.log(updatedBook)
   }
 
 
@@ -53,17 +52,16 @@ const UpdateBook = ({book}) => {
         <input
           type="text"
           name="title"
-          placeholder={oldBook.title}
+          placeholder={book.title}
           value={oldBook.title}
           onChange={handelChange}
         />
-        <p>{oldBook.title}</p>
 
         <label htmlFor="author">Author</label>
         <input
           type="text"
           name="author"
-          placeholder={oldBook.author}
+          placeholder={book.author}
           value={oldBook.author}
           onChange={handelChange}
         />
@@ -72,7 +70,7 @@ const UpdateBook = ({book}) => {
         <input
           type="text"
           name="description"
-          placeholder={oldBook.description}
+          placeholder={book.description}
           value={oldBook.description}
           onChange={handelChange}
         />
@@ -81,7 +79,7 @@ const UpdateBook = ({book}) => {
         <input
           type="text"
           name="status"
-          placeholder={oldBook.status}
+          placeholder={book.status}
           value={oldBook.status}
           onChange={handelChange}
         />
@@ -89,7 +87,7 @@ const UpdateBook = ({book}) => {
         <input
           type="text"
           name="heroImage"
-          placeholder={oldBook.heroImage}
+          placeholder={book.heroImage}
           value={oldBook.heroImage}
           onChange={handelChange}
         />
@@ -97,7 +95,7 @@ const UpdateBook = ({book}) => {
         <input
           type="date"
           name="lastUpdated"
-          placeholder={oldBook.lastUpdated}
+          placeholder={book.lastUpdated}
           value={oldBook.lastUpdated}
           onChange={handelChange}
         />
@@ -105,7 +103,7 @@ const UpdateBook = ({book}) => {
         <input
           type="text"
           name="alternativeNames"
-          placeholder={oldBook.alternativeNames}
+          placeholder={book.alternativeNames}
           value={oldBook.alternativeNames}
           onChange={handelChange}
         />
@@ -113,7 +111,7 @@ const UpdateBook = ({book}) => {
         <input
           type="text"
           name="tags"
-          placeholder={oldBook.tags}
+          placeholder={book.tags}
           value={oldBook.tags}
           onChange={handelChange}
         />
@@ -121,7 +119,7 @@ const UpdateBook = ({book}) => {
         <input
           type="text"
           name="category"
-          placeholder={oldBook.category}
+          placeholder={book.category}
           value={oldBook.category}
           onChange={handelChange}
         />
@@ -129,7 +127,7 @@ const UpdateBook = ({book}) => {
         <input
           type="text"
           name="chapters"
-          placeholder={oldBook.chapters}
+          placeholder={book.chapters}
           value={oldBook.chapters}
           onChange={handelChange}
         />
@@ -137,7 +135,7 @@ const UpdateBook = ({book}) => {
         <input
           type="text"
           name="volumes"
-          placeholder={oldBook.volumes}
+          placeholder={book.volumes}
           value={oldBook.volumes}
           onChange={handelChange}
         />
@@ -146,7 +144,7 @@ const UpdateBook = ({book}) => {
         <input
           type="text"
           name="links"
-          placeholder={oldBook.links}
+          placeholder={book.links}
           value={oldBook.links}
           onChange={handelChange}
         />

@@ -2,9 +2,8 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router'
 import BookDetails from '../Components/BookDetails'
-import NewBook from '../Components/NewBook'
 import UpdateBook from '../Components/UpdateBook'
-import Axios from 'axios'
+import axiosPrivate from '../api/axios'
 
 
 
@@ -15,7 +14,7 @@ const BookPage = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    Axios.get(`http://localhost:8080/books/${id}`).then((res) => {
+    axiosPrivate.get(`http://localhost:8080/books/${id}`).then((res) => {
       setOneBook(res.data.data.oneBook)
       
     })

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import Axios from 'axios'
+import axiosPrivate from '../api/axios'
 
 import React from 'react'
 
@@ -24,7 +24,7 @@ const NewBook = ({userID}) => {
 
 
   const createNewBook = () => {
-    Axios.post("http://localhost:8080/books", {
+    axiosPrivate.post("http://localhost:8080/books", {
       user: userID,
       title: newBook.title,
       author: newBook.author,

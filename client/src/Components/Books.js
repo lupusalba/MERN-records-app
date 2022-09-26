@@ -41,7 +41,7 @@ const Books = ({ id }) => {
 
 
   // const deleteBook = (_id) => {
-  //   Axios.delete(`http://localhost:8080/delete-book/${_id}`)
+  //   Axios.delete(`http://localhost:8080/books/${_id}`)
   //   console.log('deleted ' + _id)
   // }
 

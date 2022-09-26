@@ -1,19 +1,25 @@
-import {Link, useNavigate} from 'react-router-dom'
-import Axios from 'axios'
+import { Link, useNavigate } from 'react-router-dom'
+import axiosPrivate from '../api/axios'
 import React from 'react'
 
 
 const BookDetails = (book) => {
 
+  let navigate = useNavigate();
 
   console.log(book)
 
-  const deleteBook = () => {
-    Axios.delete(`http://localhost:8080/delete-book/${book.book._id}`)
-    navigate(-1)
+
+  const deleteBook = async () => {
+    try {
+      const response = await axiosPrivate.delete(`/books`, { params: { _id: book.book._id } });
+      console.log('deleted ' + book.book._id)
+      navigate(-1)
+    } catch (err) {
+      console.log(err)
+    }
   }
 
-  const navigate = useNavigate()
 
   const tags = book.book.tags
   const categories = book.book.category
@@ -29,8 +35,7 @@ const BookDetails = (book) => {
         <p className="bookDetailsStatus lighter">{book.book.status}</p>
       </div>
       <div className="updateDelete">
-        <Link to={`/update-book/${book.book._id}`} className="linkButton linkUpdate">Update</Link>
-        <button onClick={() => { deleteBook()}} className="linkButton linkDelete">Delete</button>
+        <button onClick={() => { deleteBook(); }} className="linkButton linkDelete">Delete</button>
       </div>
 
       <div className="largeHeroImageWrapper">

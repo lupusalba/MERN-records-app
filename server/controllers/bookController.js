@@ -1,7 +1,7 @@
 const Book = require('../Models/ModelBook')
 
 const getAllBooks = async (req, res) => {
-  console.log(req.query.id);
+  console.log("get all books: " + req.query.id);
   const allBooks = await Book.find({user: req.query.id})
   //const allBooks = await Book.find({})
   // const allBooks = await Book.find({})
@@ -43,10 +43,11 @@ const createNewBook = async (req, res) => {
 }
 
 const updateBook = async (req, res) => {
-  if(!req?.body?._id){
+  if(!req?.query?._id){
     return res.status(400).json({'message':'ID parameter is required.'});
   }
-  const updatedBook = await Book.findByIdAndUpdate(req.body._id, req.body, {
+  console.log("update book: " + req.query._id);
+  const updatedBook = await Book.findByIdAndUpdate(req.query._id, req.body, {
     new: true,
     runValidators: true
   })
@@ -64,10 +65,11 @@ const updateBook = async (req, res) => {
 }
 
 const deleteBook = async (req, res) => {
-  if(!req?.body?._id){
+  if(!req?.query?._id){
     return res.status(400).json({'message':'ID parameter is required.'});
   }
-  await Book.findByIdAndDelete(req.body._id)
+  console.log("delete book: " + req.query._id);
+  await Book.findByIdAndDelete(req.query._id)
 
   try {
     res.status(204).json({

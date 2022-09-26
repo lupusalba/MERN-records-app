@@ -51,6 +51,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/user/:userID" element={<UserPage />} />
             <Route path="/books" element={<AllBooks />} />
+            <Route path="/books/:id" element={<AllBooks />} />
           </Route>
 
 

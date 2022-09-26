@@ -1,11 +1,15 @@
 import React from 'react'
+import axiosPrivate from '../api/axios'
 
- function User({userID}){
+function User({userID}){
   console.log(userID)
+
+
 
   return (
     <div>
-      user profile
+      user profile {userID}
+
     </div>
   )
 }

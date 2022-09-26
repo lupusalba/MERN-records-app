@@ -17,7 +17,7 @@ router.route('/')
   .get(userController.getAllUsers)
   .delete(userController.deleteUser);
 
-router.route('/')
+router.route('/:id')
   .get(userController.getUser);
 
 

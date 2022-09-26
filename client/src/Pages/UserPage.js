@@ -2,7 +2,7 @@
 import User from '../Components/User';
 import {useParams} from 'react-router-dom';
 import React from 'react';
-import Axios from 'axios';
+import Books from '../Components/Books'
 
 const UserPage = () => {
 
@@ -15,6 +15,7 @@ const UserPage = () => {
     <div>
       <h1>User Profile</h1>
       <User userID={userID}/>
+      <Books id={userID} />
     </div>
   )
 }

@@ -91,9 +91,11 @@ const deleteBook = async (req, res) => {
 }
 
 const getBook = async (req, res) => {
+  console.log(req)
   if(!req?.params?._id){
     return res.status(400).json({'message':'ID parameter is required.'});
   }
+  console.log("get book: " + req.params)
   const oneBook = await Book.findById(req.params._id)
   try {
     res.status(200).json({

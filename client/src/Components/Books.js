@@ -1,6 +1,6 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
-import axiosPrivate from '../api/axios'
+// import axiosPrivate from '../api/axios'
 import Book from '../Components/Book'
 import useAxiosPrivate from '../hooks/useAxiosPrivate'
 import Axios from 'axios'
@@ -19,7 +19,9 @@ import Axios from 'axios'
 //   )
 
 
-const Books = ({ id }) => {const AP = useAxiosPrivate();
+const Books = ({ id }) => {
+  
+  const axiosPrivate = useAxiosPrivate();
 
   console.log("from books.js: " + id);
   const [listOfBooks, setListOfBooks] = useState([])
@@ -49,7 +51,7 @@ const Books = ({ id }) => {const AP = useAxiosPrivate();
 
     const getData = async () => {
       try {
-        const response = await AP.get(`/books`, { params: { id: id }});
+        const response = await axiosPrivate.get(`/books`, { params: { id: id }});
         console.log("trying to get books...");
         setListOfBooks(response.data.data.allBooks);
         console.log(listOfBooks)

@@ -1,10 +1,12 @@
 import { Link, useNavigate } from 'react-router-dom'
-import axiosPrivate from '../api/axios'
+// import axiosPrivate from '../api/axios'
+import useAxiosPrivate from '../hooks/useAxiosPrivate'
 import React from 'react'
 
 
 const BookDetails = (book) => {
 
+  const axiosPrivate = useAxiosPrivate();
   let navigate = useNavigate();
 
   console.log(book)

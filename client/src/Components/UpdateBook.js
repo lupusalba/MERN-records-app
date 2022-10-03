@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react'
-import axiosPrivate from '../api/axios'
+// import axiosPrivate from '../api/axios'
+import useAxiosPrivate from '../hooks/useAxiosPrivate'
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 
 const UpdateBook = ({ book }) => {
+
+  const axiosPrivate = useAxiosPrivate();
 
   const [on, setOn] = useState(false)
 
@@ -29,7 +32,7 @@ const UpdateBook = ({ book }) => {
   const updateOldBook = async (e) => {
     let id = book._id
     try {
-      let updatedBook = await axiosPrivate.patch(`http://localhost:8080/books`, oldBook, { params: { id: id } })
+      let updatedBook = await axiosPrivate.patch(`/books`, oldBook, { params: { id: id } })
       console.log(updatedBook)
       navigate(-1);
     } catch (err) {

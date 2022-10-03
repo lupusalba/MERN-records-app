@@ -1,11 +1,6 @@
 const Book = require('../Models/ModelBook')
 
 const getAllBooks = async (req, res) => {
-  
-  console.log('getAllBooks called ..............................................................................');
-  console.log('getAllBooks called  ..............................................................................');
-  console.log('getAllBooks called  ..............................................................................');
-  console.log("get all books: " + req.query.id);
   const allBooks = await Book.find({user: req.query.id})
   
   //const allBooks = await Book.find({})
@@ -27,6 +22,10 @@ const getAllBooks = async (req, res) => {
 }
 
 const createNewBook = async (req, res) => {
+  console.log("createNewBook called ==================-------------****************====")
+  console.log("createNewBook called ==================-------------****************====")
+  console.log("createNewBook called ==================-------------****************====")
+  
   if(!req?.body){
     return res.status(400).json({'message':'Required fields not provided, try again'});
   }

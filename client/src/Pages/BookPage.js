@@ -10,7 +10,7 @@ import useAxiosPrivate from '../hooks/useAxiosPrivate'
 const BookPage = () => {
 
   const axiosPrivate = useAxiosPrivate();
-  
+
   const [oneBook, setOneBook] = useState({})
 
   const { id } = useParams();
@@ -28,6 +28,8 @@ console.log("from bookpage: " + id)
 
   return (
     <div className="BookPage">
+
+    
 
       <BookDetails book={oneBook}/>
 

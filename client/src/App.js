@@ -36,7 +36,7 @@ function App() {
       <Link to={`/books`} >Books</Link>
       <Link to={`/admin`} >admin</Link>
       <Link to={`/user`} >user</Link>
-      <Link to={`/new`} >new book</Link>
+      <Link to={`/books/new/:userID`} >new book</Link>
       <Link to={`/`} >home</Link>
     </div>
       <Routes>
@@ -54,7 +54,6 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/user/:userID" element={<UserPage />} />
             <Route path="/books" element={<AllBooks />} />
-            <Route path="/new" element={<NewBookPage />} />
 
             <Route path="/books/:id" element={<BookPage />} />
             <Route path="/logout" element={<LogoutPage />} />

@@ -1,8 +1,13 @@
 const Book = require('../Models/ModelBook')
 
 const getAllBooks = async (req, res) => {
+  
+  console.log('getAllBooks called ..............................................................................');
+  console.log('getAllBooks called  ..............................................................................');
+  console.log('getAllBooks called  ..............................................................................');
   console.log("get all books: " + req.query.id);
   const allBooks = await Book.find({user: req.query.id})
+  
   //const allBooks = await Book.find({})
   // const allBooks = await Book.find({})
   if (!allBooks) return res.status(204).json({ 'massage': 'No Books Found' });

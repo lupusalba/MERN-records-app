@@ -24,23 +24,25 @@ const NewBook = ({userID}) => {
 
 
   const createNewBook = () => {
-    axiosPrivate.post("http://localhost:8080/books", {
-      user: userID,
-      title: newBook.title,
-      author: newBook.author,
-      description: newBook.description,
-      status: newBook.status,
-      heroImage: newBook.heroImage,
-      lastUpdated: newBook.lastUpdated,
-      alternativeNames: newBook.alternativeNames,
-      tags: newBook.tags,
-      category: newBook.category,
-      chapters: newBook.chapters,
-      volumes: newBook.volumes,
-      links: newBook.links
-    }).then(response => {
-      console.log("success")
-    })
+    try {
+      axiosPrivate.post("/books", {
+        user: userID,
+        title: newBook.title,
+        author: newBook.author,
+        description: newBook.description,
+        status: newBook.status,
+        heroImage: newBook.heroImage,
+        lastUpdated: newBook.lastUpdated,
+        alternativeNames: newBook.alternativeNames,
+        tags: newBook.tags,
+        category: newBook.category,
+        chapters: newBook.chapters,
+        volumes: newBook.volumes,
+        links: newBook.links
+      })
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   const handelChange = (e) => {

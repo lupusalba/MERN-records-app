@@ -11,6 +11,7 @@ import AdminPage from './Pages/AdminPage'
 import Error from './Pages/ErrorNotFound'
 import AllBooks from './Pages/AllBooksPage'
 import BookPage from './Pages/BookPage'
+import LogoutPage from './Pages/LogoutPage'
 import NewBookPage from './Pages/NewBookPage'
 import UpdateBookPage from './Pages/UpdateBookPage'
 import './App.css';
@@ -35,7 +36,7 @@ function App() {
       <Link to={`/books`} >Books</Link>
       <Link to={`/admin`} >admin</Link>
       <Link to={`/user`} >user</Link>
-      <Link to={`/new-book`} >new book</Link>
+      <Link to={`/new`} >new book</Link>
       <Link to={`/`} >home</Link>
     </div>
       <Routes>
@@ -46,16 +47,18 @@ function App() {
           <Route path="links" element={<LinksTesting />} />
           <Route path="unauthorized" element={<UnauthorizedPage />} />
           <Route path="/" element={<Home />} />
-            {/* <Route path="/user" element={<UserPage />} />
-            <Route path="/admin" element={<AdminPage />} />
-            <Route path="/books" element={<Home />} /> */}
+          
 
           {/* we want to protect these routes */}
           <Route element={<RequireAuth allowedRoles={[ROLES.User]} />}>
             <Route path="/" element={<Home />} />
             <Route path="/user/:userID" element={<UserPage />} />
             <Route path="/books" element={<AllBooks />} />
+            <Route path="/new" element={<NewBookPage />} />
+
             <Route path="/books/:id" element={<BookPage />} />
+            <Route path="/logout" element={<LogoutPage />} />
+            <Route path="/admin" element={<AdminPage />} />
           </Route>
 
 

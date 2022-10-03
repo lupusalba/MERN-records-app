@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const userController = require('../../controllers/userController');
-const ROLES_LIST = require('../../config/roles_list');
-const verifyRoles = require('../../middleware/verifyRoles');
+// const ROLES_LIST = require('../../config/roles_list');
+// const verifyRoles = require('../../middleware/verifyRoles');
 
 
 // router.route('/')
@@ -11,11 +11,17 @@ const verifyRoles = require('../../middleware/verifyRoles');
 
 // router.route('/')
 //   .get(verifyRoles(ROLES_LIST.Admin), userController.getUser);
-
-
 router.route('/')
   .get(userController.getAllUsers)
   .delete(userController.deleteUser);
+
+router.route('/')
+  .get(userController.getUser);
+
+
+// router.route('/')
+//   .get(userController.getAllUsers)
+//   .delete(userController.deleteUser);
 
 router.route('/:id')
   .get(userController.getUser);

@@ -4,6 +4,7 @@ import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icon
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'react-router-dom'
 import Axios from 'axios'
+import axiosPrivate from '../../api/axios'
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -71,7 +72,8 @@ const RegisterForm = () => {
       return;
     }
     try {
-      const response = await  Axios.post("http://localhost:8080/register",
+      // const response = await  Axios.post("http://localhost:8080/register",
+      const response = await  axiosPrivate.post("/register",
         JSON.stringify({ userName: user, userEmail: email, password: pwd }),
         {
           headers: { 

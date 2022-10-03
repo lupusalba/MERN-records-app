@@ -8,11 +8,16 @@ const useAxiosPrivate = () => {
     const { auth } = useAuth();
 
     useEffect(() => {
+        //console.log("useAxiosPrivate AUTH: " + auth);
+
+        axiosPrivate.defaults.headers.common['Authorization'] = 'Bearer ' + auth.accessToken
 
         const requestIntercept = axiosPrivate.interceptors.request.use(
             config => {
                 if (!config.headers['Authorization']) {
                     config.headers['Authorization'] = `Bearer ${auth?.accessToken}`;
+                    console.log("from useAxiosPrivate: header " + JSON.stringify(config.headers))
+                    console.log("from useAxiosPrivate: auth " + auth.accessToken)
                 }
                 return config;
             }, (error) => Promise.reject(error)

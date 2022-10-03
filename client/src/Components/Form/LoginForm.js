@@ -1,9 +1,10 @@
+import React from 'react'
+import axiosPrivate from '../../api/axios'
 import { useState, useEffect, useRef } from 'react'
 import useAuth from '../../hooks/useAuth'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
-import Axios from 'axios'
+//import Axios from 'axios'
 
-import React from 'react'
 
 
 
@@ -20,7 +21,7 @@ const LoginForm = () => {
   const errRef = useRef();
 
 
-  const [username, setUserName] = useState('');
+  const [userName, setUserName] = useState('');
   const [pwd, setPwd] = useState('');
   const [errMsg, setErrMsg] = useState('');
 
@@ -33,15 +34,15 @@ const LoginForm = () => {
 
   useEffect(() => {
     setErrMsg('');
-  }, [username, pwd])
+  }, [userName, pwd])
 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await Axios.post("http://localhost:8080/login",
-        JSON.stringify({ userName: username, password: pwd }),
+      const response = await axiosPrivate.post(`/login`,
+        JSON.stringify({ userName: userName, password: pwd }),
         {
           headers: { 'Content-Type': 'application/json' },
           withCredentials: true
@@ -58,7 +59,7 @@ const LoginForm = () => {
       const accessToken = response?.data?.accessToken;
       const roles = response?.data?.roles;
 
-      setAuth({ username, pwd, roles, accessToken });
+      setAuth({ userName, pwd, roles, accessToken });
       setPwd('');
       setUserName('');
 
@@ -100,14 +101,14 @@ const LoginForm = () => {
           required
         /> */}
 
-        <label htmlFor="username">username:</label>
+        <label htmlFor="userName">userName:</label>
         <input
           type="text"
-          id="username"
+          id="userName"
           ref={userRef}
           autoComplete="off"
           onChange={(e) => setUserName(e.target.value)}
-          value={username}
+          value={userName}
           required
         />
 

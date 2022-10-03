@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react'
 import axiosPrivate from '../api/axios'
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 
-const UpdateBook = ({book}) => { 
+const UpdateBook = ({ book }) => {
 
   const [on, setOn] = useState(false)
+
+  const navigate = useNavigate();
 
   const [oldBook, setOldBook] = useState({
     user: book.user,
@@ -23,10 +26,15 @@ const UpdateBook = ({book}) => {
   })
 
 
-  const updateOldBook = async(e) => {
+  const updateOldBook = async (e) => {
     let id = book._id
-    let updatedBook = await axiosPrivate.patch(`http://localhost:8080/books`, oldBook, {params: {id: id}})
-    console.log(updatedBook)
+    try {
+      let updatedBook = await axiosPrivate.patch(`http://localhost:8080/books`, oldBook, { params: { id: id } })
+      console.log(updatedBook)
+      navigate(-1);
+    } catch (err) {
+      console.error(err);
+    }
   }
 
 
@@ -46,7 +54,7 @@ const UpdateBook = ({book}) => {
   return (
     <div className="newBook">
 
-      <form onSubmit={() => {updateOldBook()}}>
+      <form onSubmit={() => { updateOldBook() }}>
 
         <label htmlFor="title">Title</label>
         <input

@@ -1,17 +1,18 @@
-import { useState, useEffect } from 'react'
-// import axiosPrivate from '../api/axios'
+import { useState, useEffect, useContext } from 'react'
 import useAxiosPrivate from '../hooks/useAxiosPrivate'
+import { UserContext } from '../context/UserInfoProvider'
 
 import React from 'react'
 
-const NewBook = ({userID}) => {
+const NewBook = () => {
 
   const axiosPrivate = useAxiosPrivate();
+  const { userData, setUserData } = useContext(UserContext);
   
-  console.log("from newbook.js " + userID);
+  console.log("from newbook.js " + userData._id);
 
   const [newBook, setNewBook] = useState({
-    user: userID,
+    user: userData._id,
     title: "",
     author: "",
     description: "",
@@ -31,7 +32,7 @@ const NewBook = ({userID}) => {
     e.preventDefault();
     try {
       axiosPrivate.post("/books", {
-        user: userID,
+        user: userData._id,
         title: newBook.title,
         author: newBook.author,
         description: newBook.description,

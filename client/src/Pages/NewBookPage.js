@@ -1,8 +1,6 @@
 import NewBook from "../Components/NewBook"
 import { useParams } from "react-router-dom"
-
-import React from 'react'
-
+import Navigation from '../Components/Navigation'
 // const NewBookPage = ({userID}) => {
 const NewBookPage = () => {
 
@@ -11,6 +9,7 @@ const NewBookPage = () => {
 
   return (
     <div className="newBookPage">
+    <Navigation />
       <NewBook userID={userID}/>
     </div>
   )

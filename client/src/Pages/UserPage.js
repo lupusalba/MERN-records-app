@@ -1,25 +1,28 @@
 import React from 'react';
-import {useParams} from 'react-router-dom';
-import User from '../Components/User';
+import { useContext } from 'react';
 import Books from '../Components/Books'
-import NewBook from '../Components/NewBook'
+import { UserContext } from '../context/UserInfoProvider'
 import Navigation from '../Components/Navigation'
 
 const UserPage = () => {
 
-  let { userID } = useParams();
-  console.log(userID);
 
+  const { userData, setUserData } = useContext(UserContext);
 
+  //console.log("from userPage user data object " + JSON.stringify(userData));
 
   return (
     <div className="page" id="user-page">
-      <Navigation />
-      <h1>User Page</h1>
-      <User userID={userID}/>
-      <Books id={userID} />
-      <NewBook userID={userID}/>
-    
+    <aside>
+    <Navigation />
+    </aside>
+      <section>
+        <Books id={userData._id} />
+
+      </section>
+
+
+
     </div>
   )
 }

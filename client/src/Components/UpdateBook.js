@@ -1,12 +1,12 @@
-import { useState, useEffect } from 'react'
-// import axiosPrivate from '../api/axios'
+import { useState, useContext } from 'react'
 import useAxiosPrivate from '../hooks/useAxiosPrivate'
-import React from 'react'
 import { useNavigate } from 'react-router-dom';
+import { UserContext } from '../context/UserInfoProvider'
 
 const UpdateBook = ({ book }) => {
 
   const axiosPrivate = useAxiosPrivate();
+  const { userData, setUserData } = useContext(UserContext);
 
   const [on, setOn] = useState(false)
 

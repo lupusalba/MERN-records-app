@@ -3,9 +3,8 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router'
 import BookDetails from '../Components/BookDetails'
 import UpdateBook from '../Components/UpdateBook'
-//import axiosPrivate from '../api/axios'
 import useAxiosPrivate from '../hooks/useAxiosPrivate'
-
+import Navigation from '../Components/Navigation'
 
 const BookPage = () => {
 
@@ -29,7 +28,7 @@ console.log("from bookpage: " + id)
   return (
     <div className="BookPage">
 
-    
+<Navigation />
 
       <BookDetails book={oneBook}/>
 

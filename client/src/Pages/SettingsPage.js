@@ -1,12 +1,13 @@
 import Navigation from '../Components/Navigation'
 
-const UnauthorizedPage = () => {
+const SettingsPage = () => {
   return (
     <div>
+    
     <Navigation />
-      <h1>Unathorized</h1>
+      <h1>SettingsPage</h1>
     </div>
   )
 }
 
-export default UnauthorizedPage
+export default SettingsPage

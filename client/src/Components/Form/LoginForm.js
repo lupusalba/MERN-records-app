@@ -1,10 +1,10 @@
 import React from 'react'
 import axiosPrivate from '../../api/axios'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useContext } from 'react'
 import useAuth from '../../hooks/useAuth'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
 //import Axios from 'axios'
-
+import { UserContext } from '../../context/UserInfoProvider'
 
 
 
@@ -12,6 +12,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom'
 const LoginForm = () => {
 
   const { setAuth } = useAuth();
+  const { userData, setUserData } = useContext(UserContext)
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -53,8 +54,11 @@ const LoginForm = () => {
       console.log(JSON.stringify(response?.data));
       
 
+      setUserData(response?.data?.userPublicData);
+
       const userID = response?.data?.userPublicData._id
       console.log(userID);
+
 
       const accessToken = response?.data?.accessToken;
       const roles = response?.data?.roles;
@@ -63,7 +67,7 @@ const LoginForm = () => {
       setPwd('');
       setUserName('');
 
-      navigate(`/user/${userID}`, { replace: true });
+      navigate(`/profile`, { replace: true });
 
       console.log(JSON.stringify(response));
 

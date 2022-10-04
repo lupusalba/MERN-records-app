@@ -13,9 +13,9 @@ import AllBooks from './Pages/AllBooksPage'
 import BookPage from './Pages/BookPage'
 import LogoutPage from './Pages/LogoutPage'
 import NewBookPage from './Pages/NewBookPage'
-import UpdateBookPage from './Pages/UpdateBookPage'
-import './App.css';
-import './ResponsiveStyle.css';
+//import './Styles/App.css';
+import './Styles/ResponsiveStyle.css';
+import './Styles/AppStyle.css';
 import RequireAuth from './Components/RequireAuth'
 
 const ROLES = {
@@ -28,17 +28,8 @@ function App() {
   return (
     <div className="App">
 
-<div className="linkTesting">
-      <Link to={`/login`}>login</Link>
-      <Link to={`/logout`} >logout</Link>
-      <Link to={`/register`}>register</Link>
-      <Link to={`/unauthorized`} >Unathorized</Link>
-      <Link to={`/books`} >Books</Link>
-      <Link to={`/admin`} >admin</Link>
-      <Link to={`/user`} >user</Link>
-      <Link to={`/books/new/:userID`} >new book</Link>
-      <Link to={`/`} >home</Link>
-    </div>
+      
+
       <Routes>
         <Route path="/" element={<LayoutTest />}>
           {/* public routes */}
@@ -52,12 +43,11 @@ function App() {
           {/* we want to protect these routes */}
           <Route element={<RequireAuth allowedRoles={[ROLES.User]} />}>
             <Route path="/" element={<Home />} />
-            <Route path="/user/:userID" element={<UserPage />} />
+            <Route path="/profile" element={<UserPage />} />
             <Route path="/books" element={<AllBooks />} />
-
             <Route path="/books/:id" element={<BookPage />} />
+            <Route path="/new-book" element={<NewBookPage />} />
             <Route path="/logout" element={<LogoutPage />} />
-            <Route path="/admin" element={<AdminPage />} />
           </Route>
 
 

@@ -1,3 +1,27 @@
+$dark: #391400;
+$dark_accent: #EF6D58;
+$dark_gray: rgba(57, 20, 0, 0.64);
+$light: #ffffff;
+$light_accent: #EF6D58;
+$light_gray: rgba(255, 255, 255, 0.64);
+$background_gray: #F2F2F2;
+$background-dark: #333333;
+$light_orange: #F3D1BF;
+
+$container: 80%;
+
+
+.page {
+  background-color: $background_gray;
+  color: $dark;
+}
+
+.books {
+  width: $container;
+  margin: 0 auto;
+  border: 1px solid $dark_accent
+}
+
 * {
   box-sizing: border-box;
 }
@@ -280,7 +304,7 @@ PAGES Style
 .homeIntro {
   height: 100vh;
   width: 100%;
-  background-image: url('./Images//backgroundLibrary.jpg');
+  background-image: url('../Images/backgroundLibrary.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -501,23 +525,37 @@ padding: 0.5rem;
 }
 
 
+/*************************
+    user   PAGE
+*************************/
 
+aside {
+  width: 100px;
+  display: inline;
+  position: fixed;
+  border-right: 1px solid $dark;
+}
 
+section {
+  width: 100%;
+  display: inline;
 
+}
 
+#Navigation {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
 
+#Navigation a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-
-
-
-
-
-
-
-.linkTesting a {
-  display: block;
-  border: 1px solid black;
-  padding: 10px 20px;
-  margin-bottom: 30px;
-  width: 200px;text-align: center;
+#Navigation a span {
+  font-size: 60px;
 }

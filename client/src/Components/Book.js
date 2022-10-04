@@ -4,6 +4,7 @@ import React from 'react'
 const Book = (book) => {
   console.log(book)
   return (
+    <div className="book">
     <Link to={`/books/${book.book._id}`} className="book">
 
       <div className="heroWrapper">
@@ -25,6 +26,7 @@ const Book = (book) => {
         </div>
       </div>
     </Link>
+    </div>
   )
 }
 

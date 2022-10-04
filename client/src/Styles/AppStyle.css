@@ -30,6 +30,10 @@ label {
   margin-bottom: 5px;
 }
 
+.page {
+  display: flex;
+}
+
 #navigation {
   width: 100px;
   height: 100vh;
@@ -55,11 +59,11 @@ label {
   fill: #391400;
 }
 #navigation .websiteMode:hover {
-  color: #EF6D58;
+  color: #ef6d58;
   transition: all 300ms ease;
 }
 #navigation .websiteMode:hover span svg path {
-  fill: #EF6D58;
+  fill: #ef6d58;
   transition: all 300ms ease;
 }
 #navigation a {
@@ -80,20 +84,20 @@ label {
   fill: #391400;
 }
 #navigation a:hover {
-  color: #EF6D58;
+  color: #ef6d58;
   transition: all 300ms ease;
 }
 #navigation a:hover span svg path {
-  fill: #EF6D58;
+  fill: #ef6d58;
   transition: all 300ms ease;
 }
 #navigation a:active {
-  color: #F3D1BF;
+  color: #f3d1bf;
   padding-top: 2px;
   transition: all 300ms ease;
 }
 #navigation a:active span svg path {
-  fill: #F3D1BF;
+  fill: #f3d1bf;
   transition: all 300ms ease;
 }
 
@@ -109,7 +113,7 @@ label {
   border-radius: 10px;
   border-style: inset;
   border-width: 1px;
-  border-color: #EF6D58;
+  border-color: #ef6d58;
 }
 .newBook form input:focus-visible {
   outline: #391400;
@@ -119,18 +123,94 @@ label {
 .newBook form button[type=submit] {
   width: 200px;
   height: 40px;
-  border: 2px solid #EF6D58;
+  border: 2px solid #ef6d58;
   border-radius: 20px;
   background: transparent;
-  color: #EF6D58;
+  color: #ef6d58;
   font-size: 20px;
 }
 .newBook form button[type=submit]:hover {
-  background: #EF6D58;
+  background: #ef6d58;
   color: #ffffff;
   transition: all 300ms ease;
 }
 .newBook form button[type=submit]:active {
-  box-shadow: 3px 3px 3px #EF6D58;
+  box-shadow: 3px 3px 3px #ef6d58;
+  transition: all 300ms ease;
+}
+
+.updateBtn {
+  height: 40px;
+  border-radius: 20px;
+  padding: 5px 30px;
+  background: transparent;
+  color: #391400;
+  border: 2px solid #391400;
+  font-weight: bold;
+  margin: 0 auto;
+}
+
+.updateBtn:hover {
+  color: #ffffff;
+  border: 2px solid #ef6d58;
+  background: #ef6d58;
+  transition: all 300ms ease;
+}
+
+.updateBtn:active {
+  box-shadow: 3px 3px 3px #ef6d58;
+  transition: all 300ms ease;
+}
+
+.bookDetailsWrapper {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
+  box-sizing: border-box;
+  padding: 20px;
+}
+.bookDetailsWrapper .bookDetailsHeading {
+  grid-area: 1/1/span 1/span 10;
+}
+.bookDetailsWrapper .updateDelete {
+  grid-area: 1/11/span 1/span 2;
+  display: flex;
+}
+.bookDetailsWrapper .largeHeroImageWrapper {
+  grid-area: 2/1/span 1/span 6;
+}
+.bookDetailsWrapper .bookDetailsData {
+  grid-area: 2/6/span 1/span 6;
+}
+.bookDetailsWrapper .bookDetailsHeading .bookDetailsTitle {
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: -10px;
+}
+.bookDetailsWrapper .bookDetailsHeading .bookDetailsStatusLighter {
+  opacity: 0.8;
+  font-size: 18px;
+}
+.bookDetailsWrapper .updateDelete {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bookDetailsWrapper .updateDelete .deleteBook {
+  border-radius: 20px;
+  padding: 5px 30px;
+  background: #ef6d58;
+  color: #ffffff;
+  border: 2px solid #ef6d58;
+  font-weight: bold;
+  margin: 0 auto;
+}
+.bookDetailsWrapper .updateDelete .deleteBook:hover {
+  background: transparent;
+  color: #391400;
+  transition: all 300ms ease;
+}
+.bookDetailsWrapper .updateDelete .deleteBook:active {
+  box-shadow: 3px 3px 3px #ef6d58;
   transition: all 300ms ease;
 }/*# sourceMappingURL=AppStyle.css.map */

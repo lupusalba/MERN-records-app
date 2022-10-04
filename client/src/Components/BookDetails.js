@@ -34,10 +34,10 @@ const BookDetails = (book) => {
 
       <div className="bookDetailsHeading">
         <p className="bookDetailsTitle">{book.book.title}</p>
-        <p className="bookDetailsStatus lighter">{book.book.status}</p>
+        <p className="bookDetailsStatusLighter">{book.book.status}</p>
       </div>
       <div className="updateDelete">
-        <button onClick={() => { deleteBook(); }} className="linkButton linkDelete">Delete</button>
+        <button onClick={() => { deleteBook(); }} className="deleteBook">Delete</button>
       </div>
 
       <div className="largeHeroImageWrapper">

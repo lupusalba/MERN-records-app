@@ -1,22 +1,20 @@
 $dark: #391400;
-$dark_accent: #EF6D58;
+$dark_accent: #ef6d58;
 $dark_gray: rgba(57, 20, 0, 0.64);
 $light: #ffffff;
-$light_accent: #EF6D58;
+$light_accent: #ef6d58;
 $light_gray: rgba(255, 255, 255, 0.64);
-$background_gray: #F2F2F2;
+$background_gray: #f2f2f2;
 $background-dark: #333333;
-$light_orange: #F3D1BF;
+$light_orange: #f3d1bf;
 
 $container: 80%;
 $input_height: 40px;
 $input_width: 500px;
 $input_font_size: 18px;
 
-
-
 ///////////////// GENERAL RULES
-/// 
+///
 aside {
   display: inline-block;
 }
@@ -48,9 +46,11 @@ label {
   margin-bottom: 5px;
 }
 
-
+.page {
+  display: flex;
+}
 ///////////////// NAVIGATION
-/// 
+///
 
 #navigation {
   width: 100px;
@@ -124,10 +124,8 @@ label {
   }
 }
 
-
-
-//////////   Section
-/// 
+//////////   New Book
+///
 
 .newBook {
   form {
@@ -169,4 +167,87 @@ label {
     }
   }
 }
+////////////////////////////////////////
+//////////    Book Page
+//
 
+.updateBtn {
+  height: $input_height;
+  border-radius: 20px;
+  padding: 5px 30px;
+  background: transparent;
+  color: $dark;
+  border: 2px solid $dark;
+  font-weight: bold;
+  margin: 0 auto;
+}
+
+.updateBtn:hover {
+  color: $light;
+  border: 2px solid $dark_accent;
+  background: $dark_accent;
+  transition: all 300ms ease;
+}
+.updateBtn:active {
+  box-shadow: 3px 3px 3px $dark_accent;
+  transition: all 300ms ease;
+}
+//////////    Book Details
+///
+
+.bookDetailsWrapper {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
+  box-sizing: border-box;
+  padding: 20px;
+  .bookDetailsHeading {
+    grid-area: 1 / 1 / span 1 / span 10;
+  }
+  .updateDelete {
+    grid-area: 1 / 11 / span 1 / span 2;
+    display: flex;
+  }
+  .largeHeroImageWrapper {
+    grid-area: 2 / 1 / span 1 / span 6;
+  }
+  .bookDetailsData {
+    grid-area: 2 / 6 / span 1 / span 6;
+  }
+
+  .bookDetailsHeading {
+    .bookDetailsTitle {
+      font-size: 40px;
+      font-weight: bold;
+      margin-bottom: -10px;
+    }
+    .bookDetailsStatusLighter {
+      opacity: 0.8;
+      font-size: 18px;
+    }
+  }
+
+  .updateDelete {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .deleteBook {
+      border-radius: 20px;
+      padding: 5px 30px;
+      background: $dark_accent;
+      color: $light;
+      border: 2px solid $dark_accent;
+      font-weight: bold;
+      margin: 0 auto;
+    }
+    .deleteBook:hover {
+      background: transparent;
+      color: $dark;
+      transition: all 300ms ease;
+    }
+    .deleteBook:active {
+      box-shadow: 3px 3px 3px $dark_accent;
+      transition: all 300ms ease;
+    }
+  }
+}

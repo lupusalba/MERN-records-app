@@ -162,7 +162,7 @@ const UpdateBook = ({ book }) => {
 
 
 
-        <button onClick={() => { setOn(!on) }}>Save Changes</button>
+        <button type="submit" onClick={() => { setOn(!on) }}>Save Changes</button>
       </form>
     </div>
   )

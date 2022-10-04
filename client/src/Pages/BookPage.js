@@ -22,17 +22,18 @@ const BookPage = () => {
   }, [])
 
 
-
+  const [showUpdate, setShowUpdate] = useState(false)
 
 
   return (
-    <div className="BookPage">
+    <div className="page">
       <aside>
         <Navigation />
       </aside>
       <section>
         <BookDetails book={oneBook} />
-        <UpdateBook book={oneBook} />
+        <button className="updateBtn" onClick={(e) => setShowUpdate(!showUpdate)}>Update Book</button>
+        {showUpdate ? <UpdateBook book={oneBook} /> : ""}
       </section>
 
     </div>

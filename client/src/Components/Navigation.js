@@ -4,8 +4,13 @@ import { BiBookAdd, BiBookOpen, BiAdjust, BiUser } from "react-icons/bi";
 
 const Navigation = () => {
   return (
-    <div className="navWrapper">
-      <nav id="Navigation">
+      <nav id="navigation">
+        <button className="websiteMode">
+        <span>
+          <BiAdjust />
+        </span>
+          Mode
+        </button>
         <Link className="navLink" to="/books">
           <span>
             <BiBookOpen />
@@ -26,13 +31,9 @@ const Navigation = () => {
         </Link>
 
         <Link to="/logout">
-          <span>
-            <BiAdjust />
-          </span>
           Logout
         </Link>
       </nav>
-    </div>
   )
 }
 

@@ -9,9 +9,6 @@ const BookDetails = (book) => {
   const axiosPrivate = useAxiosPrivate();
   let navigate = useNavigate();
 
-  console.log(book)
-
-
   const deleteBook = async () => {
     try {
       const response = await axiosPrivate.delete(`/books`, { params: { _id: book.book._id } });
@@ -22,12 +19,7 @@ const BookDetails = (book) => {
     }
   }
 
-
-  const tags = book.book.tags
-  const categories = book.book.category
-  const links = book.book.links
-  const altNames = book.book.alternativeNames
-
+  const dt = new Date(book.book.lastUpdated)
 
   return (
     <div className="bookDetailsWrapper">
@@ -44,21 +36,21 @@ const BookDetails = (book) => {
         <img className="largeHeroImage" src={book.book.heroImage} />
       </div>
       <div className="bookDetailsData">
-        <div className="bookDetailsDescription">
+        <div id="bookDetailsDescription">
           <span className="bigBold">Description</span>
           <p>{book.book.description}</p>
         </div>
 
         <div className="bookDetailsPartsContainer">
-          <div className="bookDetailsParts">
+          <div id="bookDetailsParts">
             <span className="bold">
               {book.book.volumes === 0 ? "Chapters" : "Parts / Volumes"}
             </span>
-            <p>{book.book.volumes === 0 ? book.book.chapters : book.book.volumes}</p>
+            <p className="bookDetailsDataItem">{book.book.volumes === 0 ? book.book.chapters : book.book.volumes}</p>
           </div>
-          <div className="bookDetailsLastUpdate">
+          <div id="bookDetailsLastUpdate">
             <span className="bold">Last Update</span>
-            <p>{book.book.lastUpdate}</p>
+            <p className="bookDetailsDataItem">{dt.toString()}</p>
           </div>
         </div>
 
@@ -66,31 +58,46 @@ const BookDetails = (book) => {
           <span className="bold">Author</span>
           <p>{book.book.author}</p>
         </div>
+        {
+          book.book.links === 0 || book.book.links === "undefined" ? (
+            <div id="myComment">
+              {book.book.myComments === 0 || book.book.myComments === "undefined"}
+              <span className="bold">My Components</span>
+              <p className="bookDetailsDataItem">{book.book.myComment}</p>
+            </div>) : ('')
+        }
 
-        <div className="myComment">
-          <span className="bold">My Components</span>
-          <p>{book.book.myComments}</p>
-        </div>
+        {
+          book.book.alternativeNames === 0 || book.book.alternativeNames === "undefined" ? (
+            <div id="alternativeNames">
+              <span className="bold">alternativeNames</span>
+              <p className="bookDetailsDataItem">{book.book.alternativeNames}</p>
+            </div>) : ('')
+        }
+        {
+          book.book.tags === 0 || book.book.tags === "undefined" ? (
+            <div id="tags">
+              <span className="bold">tags</span>
+              <p className="bookDetailsDataItem">{book.book.tags}</p>
+            </div>) : ('')
+        }
+        {
+          book.book.category === 0 || book.book.category === "undefined" ? (
+            <div id="category">
+              <span className="bold">category</span>
+              <p className="bookDetailsDataItem">{book.book.category}</p>
+            </div>
+          ) : ('')
+        }
 
-        <div className="alternativeNames">
-          <span className="bold">alternativeNames</span>
-          <p>{altNames}</p>
-        </div>
-
-        <div className="tags">
-          <span className="bold">tags</span>
-          <p>{tags}</p>
-        </div>
-
-        <div className="category">
-          <span className="bold">category</span>
-          <p>{categories}</p>
-        </div>
-
-        <div className="links">
-          <span className="bold">links</span>
-          <p>{links}</p>
-        </div>
+        {
+          book.book.links === 0 || book.book.links === "undefined" ? (
+            <div id="links">
+              <span className="bold">links</span>
+              <p className="bookDetailsDataItem">{book.book.links}</p>
+            </div>
+          ) : ('')
+        }
 
 
 

@@ -171,6 +171,7 @@ label {
 }
 .bookDetailsWrapper .bookDetailsHeading {
   grid-area: 1/1/span 1/span 10;
+  margin-left: 100px;
 }
 .bookDetailsWrapper .updateDelete {
   grid-area: 1/11/span 1/span 2;
@@ -180,7 +181,7 @@ label {
   grid-area: 2/1/span 1/span 6;
 }
 .bookDetailsWrapper .bookDetailsData {
-  grid-area: 2/6/span 1/span 6;
+  grid-area: 2/7/span 1/span 5;
 }
 .bookDetailsWrapper .bookDetailsHeading .bookDetailsTitle {
   font-size: 40px;
@@ -213,4 +214,24 @@ label {
 .bookDetailsWrapper .updateDelete .deleteBook:active {
   box-shadow: 3px 3px 3px #ef6d58;
   transition: all 300ms ease;
+}
+.bookDetailsWrapper .largeHeroImageWrapper {
+  margin-left: 100px;
+}
+.bookDetailsWrapper .largeHeroImageWrapper .largeHeroImage {
+  height: 100%;
+  width: 400px;
+}
+.bookDetailsWrapper .bookDetailsData div > span {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.btnWrapper {
+  width: 100%;
+  display: flex;
+}
+
+.bookDetailsDataItem {
+  margin-bottom: 10px;
 }/*# sourceMappingURL=AppStyle.css.map */

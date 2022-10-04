@@ -203,6 +203,7 @@ label {
   padding: 20px;
   .bookDetailsHeading {
     grid-area: 1 / 1 / span 1 / span 10;
+    margin-left: 100px;
   }
   .updateDelete {
     grid-area: 1 / 11 / span 1 / span 2;
@@ -212,7 +213,7 @@ label {
     grid-area: 2 / 1 / span 1 / span 6;
   }
   .bookDetailsData {
-    grid-area: 2 / 6 / span 1 / span 6;
+    grid-area: 2 / 7 / span 1 / span 5;
   }
 
   .bookDetailsHeading {
@@ -250,4 +251,28 @@ label {
       transition: all 300ms ease;
     }
   }
+
+  .largeHeroImageWrapper {
+    margin-left: 100px;
+    .largeHeroImage {
+      height: 100%;
+      width: 400px;
+    }
+  }
+
+  .bookDetailsData {
+    div > span {
+      font-weight: bold;
+      font-size: 18px;
+    }
+  }
+}
+
+.btnWrapper {
+  width: 100%;
+  display: flex;
+}
+
+.bookDetailsDataItem {
+  margin-bottom: 10px;
 }

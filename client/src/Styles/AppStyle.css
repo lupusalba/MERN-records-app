@@ -2,6 +2,34 @@ aside {
   display: inline-block;
 }
 
+section {
+  display: inline-block;
+  width: calc(100% - 100px);
+}
+
+input {
+  font-size: 18px;
+  height: 40px;
+  width: 500px;
+  border-style: inset;
+  border-width: 1px;
+  box-sizing: border-box;
+}
+
+input:focus-visible {
+  outline: none;
+}
+
+label {
+  display: flex;
+  flex-direction: row;
+  width: 500px;
+  justify-content: flex-start;
+  text-transform: capitalize;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
 #navigation {
   width: 100px;
   height: 100vh;
@@ -69,28 +97,40 @@ aside {
   transition: all 300ms ease;
 }
 
-section {
-  display: inline-block;
-  width: calc(100% - 100px);
-}
-
 .newBook form {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-.newBook form label {
-  display: flex;
-  flex-direction: row;
-  width: 500px;
-  justify-content: flex-start;
-  text-transform: capitalize;
-  font-weight: bold;
-  margin-bottom: 5px;
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
 .newBook form input {
-  height: 36px;
-  width: 500px;
   margin-bottom: 30px;
   border-radius: 10px;
+  border-style: inset;
+  border-width: 1px;
+  border-color: #EF6D58;
+}
+.newBook form input:focus-visible {
+  outline: #391400;
+  border-width: 2px;
+  transition: all 300ms ease;
+}
+.newBook form button[type=submit] {
+  width: 200px;
+  height: 40px;
+  border: 2px solid #EF6D58;
+  border-radius: 20px;
+  background: transparent;
+  color: #EF6D58;
+  font-size: 20px;
+}
+.newBook form button[type=submit]:hover {
+  background: #EF6D58;
+  color: #ffffff;
+  transition: all 300ms ease;
+}
+.newBook form button[type=submit]:active {
+  box-shadow: 3px 3px 3px #EF6D58;
+  transition: all 300ms ease;
 }/*# sourceMappingURL=AppStyle.css.map */

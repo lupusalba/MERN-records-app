@@ -9,14 +9,48 @@ $background-dark: #333333;
 $light_orange: #F3D1BF;
 
 $container: 80%;
-$form_input_width: 500px;
+$input_height: 40px;
+$input_width: 500px;
+$input_font_size: 18px;
 
 
-///////////////// NAVIGATION
+
+///////////////// GENERAL RULES
 /// 
 aside {
   display: inline-block;
 }
+
+section {
+  display: inline-block;
+  width: calc(100% - 100px);
+}
+
+input {
+  font-size: $input_font_size;
+  height: $input_height;
+  width: $input_width;
+  border-style: inset;
+  border-width: 1px;
+  box-sizing: border-box;
+}
+input:focus-visible {
+  outline: none;
+}
+
+label {
+  display: flex;
+  flex-direction: row;
+  width: $input_width;
+  justify-content: flex-start;
+  text-transform: capitalize;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+
+///////////////// NAVIGATION
+/// 
 
 #navigation {
   width: 100px;
@@ -95,30 +129,44 @@ aside {
 //////////   Section
 /// 
 
-section {
-  display: inline-block;
-  width: calc(100% - 100px);
-}
-
 .newBook {
   form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    label {
-      display: flex;
-      flex-direction: row;
-      width: $form_input_width;
-      justify-content: flex-start;
-      text-transform: capitalize;
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
+    padding-top: 100px;
+    padding-bottom: 100px;
+
     input {
-      height: 36px;
-      width: $form_input_width;
       margin-bottom: 30px;
       border-radius: 10px;
+      border-style: inset;
+      border-width: 1px;
+      border-color: $dark_accent;
+    }
+    input:focus-visible {
+      outline: $dark;
+      border-width: 2px;
+      transition: all 300ms ease;
+    }
+    button[type="submit"] {
+      width: 200px;
+      height: $input_height;
+      border: 2px solid $dark_accent;
+      border-radius: 20px;
+      background: transparent;
+      color: $dark_accent;
+      font-size: 20px;
+    }
+    button[type="submit"]:hover {
+      background: $dark_accent;
+      color: $light;
+      transition: all 300ms ease;
+    }
+    button[type="submit"]:active {
+      box-shadow: 3px 3px 3px $dark_accent;
+      transition: all 300ms ease;
     }
   }
 }
+

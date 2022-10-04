@@ -65,8 +65,9 @@ const NewBook = () => {
 
   return (
     <div className="newBook">
+      
       <form id="newBookForm" onSubmit={createNewBook}>
-
+      <h3>Add New Book</h3>
         <label htmlFor="title">Title</label>
         <input
           type="text"
@@ -163,7 +164,7 @@ const NewBook = () => {
 
 
 
-        <button >Save New Book</button>
+        <button type="submit">Save New Book</button>
       </form>
     </div>
   )

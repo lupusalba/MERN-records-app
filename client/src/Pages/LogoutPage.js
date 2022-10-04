@@ -1,22 +1,24 @@
 import React from 'react'
-import axiosPrivate from '../api/axios'
-import Axios from 'axios'
+import useAxiosPrivate from '../hooks/useAxiosPrivate'
+import {useNavigate} from 'react-router-dom'
 
-const userLogout = async() => {
-  try {
-    const response = await Axios.get("http://localhost:8080/logout",
-    {
-      headers: { 'Content-Type': 'application/json'},
-      withCredentials: true
+const LogoutPage = async() => {
+
+    const axiosPrivate = useAxiosPrivate();
+    const navigate = useNavigate();
+  
+    try {
+      const response = await axiosPrivate.get("/logout",
+        {
+          headers: { 'Content-Type': 'application/json' },
+          withCredentials: true
+        }
+      );
+      navigate('/', { replace: true });
+    } catch (err) {
+      console.log(err)
     }
-    );
-  } catch (error) {
-    console.error(error)
-  }
-}
-userLogout();
 
-const LogoutPage = () => {
   return (
     <div>
       logged out

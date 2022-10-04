@@ -5,12 +5,16 @@ import Navigation from '../Components/Navigation'
 const NewBookPage = () => {
 
   const userID = useParams();
-  console.log("from useParams newBookPage "+ JSON.stringify(userID))
+  console.log("from useParams newBookPage " + JSON.stringify(userID))
 
   return (
     <div className="newBookPage">
-    <Navigation />
-      <NewBook userID={userID}/>
+      <aside>
+        <Navigation />
+      </aside>
+      <section>
+        <NewBook userID={userID} />
+      </section>
     </div>
   )
 }

@@ -3,7 +3,7 @@ import Navigation from '../Components/Navigation'
 
 const AllBooksPage = () => {
   return (
-    <div id="allBooksPage">
+    <div className="page">
 
       <aside>
         <Navigation />

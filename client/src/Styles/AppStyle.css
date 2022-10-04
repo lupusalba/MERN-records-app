@@ -1,3 +1,7 @@
+a {
+  text-decoration: none;
+}
+
 aside {
   display: inline-block;
 }
@@ -233,5 +237,45 @@ label {
 }
 
 .bookDetailsDataItem {
+  margin-bottom: 10px;
+}
+
+.books {
+  box-sizing: border-box;
+  padding: 30px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
+  gap: 30px;
+}
+.books .book {
+  height: 500px;
+  width: auto;
+  max-width: 300px;
+  grid-column: span 3;
+  position: relative;
+}
+.books .book .heroWrapper {
+  height: 400px;
+  width: auto;
+  max-width: 300px;
+}
+.books .book .heroWrapper img {
+  max-height: 400px;
+  width: auto;
+  margin: 0 auto;
+}
+.books .book .heroWrapper .topInfo {
+  display: flex;
+  position: absolute;
+  top: -180px;
+}
+.books .book .infoWrapper .bottomInfo p span {
+  display: block;
+  text-align: center;
+}
+.books .book .infoWrapper .bottomInfo .title {
+  font-size: 22px;
+  font-weight: bold;
   margin-bottom: 10px;
 }/*# sourceMappingURL=AppStyle.css.map */

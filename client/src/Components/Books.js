@@ -17,9 +17,7 @@ const Books = ({ id }) => {
     const getData = async () => {
       try {
         const response = await axiosPrivate.get(`/books`, { params: { id: userData._id}});
-        console.log("trying to get books...");
         setListOfBooks(response.data.data.allBooks);
-        console.log(listOfBooks)
       } catch (err) {
         console.log(err)
       }

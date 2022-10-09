@@ -20,6 +20,7 @@ const BookDetails = (book) => {
   }
 
   const dt = new Date(book.book.lastUpdated)
+  const parsedDateTime = dt.toLocaleDateString() + " " + dt.toLocaleTimeString()
 
   return (
     <div className="bookDetailsWrapper">
@@ -50,7 +51,7 @@ const BookDetails = (book) => {
           </div>
           <div id="bookDetailsLastUpdate">
             <span className="bold">Last Update</span>
-            <p className="bookDetailsDataItem">{dt.toString()}</p>
+            <p className="bookDetailsDataItem">{parsedDateTime}</p>
           </div>
         </div>
 

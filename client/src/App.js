@@ -14,8 +14,8 @@ import BookPage from './Pages/BookPage'
 import LogoutPage from './Pages/LogoutPage'
 import NewBookPage from './Pages/NewBookPage'
 //import './Styles/App.css';
-import './Styles/ResponsiveStyle.css';
 import './Styles/AppStyle.css';
+import './Styles/Responsive.css';
 import RequireAuth from './Components/RequireAuth'
 
 const ROLES = {
@@ -38,6 +38,7 @@ function App() {
           <Route path="links" element={<LinksTesting />} />
           <Route path="unauthorized" element={<UnauthorizedPage />} />
           <Route path="/" element={<Home />} />
+          <Route path="/logout" element={<LogoutPage />} />
           
 
           {/* we want to protect these routes */}
@@ -47,7 +48,6 @@ function App() {
             <Route path="/books" element={<AllBooks />} />
             <Route path="/books/:id" element={<BookPage />} />
             <Route path="/new-book" element={<NewBookPage />} />
-            <Route path="/logout" element={<LogoutPage />} />
           </Route>
 
 

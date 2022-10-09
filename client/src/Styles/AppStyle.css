@@ -173,20 +173,6 @@ label {
   box-sizing: border-box;
   padding: 20px;
 }
-.bookDetailsWrapper .bookDetailsHeading {
-  grid-area: 1/1/span 1/span 10;
-  margin-left: 100px;
-}
-.bookDetailsWrapper .updateDelete {
-  grid-area: 1/11/span 1/span 2;
-  display: flex;
-}
-.bookDetailsWrapper .largeHeroImageWrapper {
-  grid-area: 2/1/span 1/span 6;
-}
-.bookDetailsWrapper .bookDetailsData {
-  grid-area: 2/7/span 1/span 5;
-}
 .bookDetailsWrapper .bookDetailsHeading .bookDetailsTitle {
   font-size: 40px;
   font-weight: bold;
@@ -242,40 +228,58 @@ label {
 
 .books {
   box-sizing: border-box;
-  padding: 30px;
+  padding: 100px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
   gap: 30px;
 }
-.books .book {
-  height: 500px;
+.books .book a {
+  max-height: 100%;
   width: auto;
   max-width: 300px;
-  grid-column: span 3;
   position: relative;
 }
-.books .book .heroWrapper {
-  height: 400px;
+.books .book a .heroWrapper {
+  max-height: 400px;
+  height: auto;
   width: auto;
   max-width: 300px;
 }
-.books .book .heroWrapper img {
+.books .book a .heroWrapper img {
   max-height: 400px;
-  width: auto;
+  height: auto;
+  width: 100%;
   margin: 0 auto;
 }
-.books .book .heroWrapper .topInfo {
+.books .book a .infoWrapper {
   display: flex;
-  position: absolute;
-  top: -180px;
+  flex-direction: column;
 }
-.books .book .infoWrapper .bottomInfo p span {
-  display: block;
+.books .book a .infoWrapper .topInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.books .book a .infoWrapper .bottomInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
 }
-.books .book .infoWrapper .bottomInfo .title {
+.books .book a .infoWrapper .bottomInfo .title {
   font-size: 22px;
   font-weight: bold;
   margin-bottom: 10px;
+  text-transform: capitalize;
+}
+
+.bookLink {
+  color: #391400;
+}
+
+.bookLink:hover {
+  color: #ef6d58;
+  transform: scale(1.05);
+  transition: all 300ms ease;
 }/*# sourceMappingURL=AppStyle.css.map */

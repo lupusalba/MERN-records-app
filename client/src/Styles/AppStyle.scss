@@ -213,7 +213,6 @@ label {
   grid-template-rows: auto;
   box-sizing: border-box;
   padding: 20px;
-  
 
   .bookDetailsHeading {
     .bookDetailsTitle {
@@ -295,51 +294,73 @@ label {
       width: auto;
       max-width: 300px;
       position: relative;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      justify-content: center;
+      align-items: center;
+    }
 
-      .heroWrapper {
+    .heroWrapper {
+      max-height: 400px;
+      // height: 400px;
+      // width: auto;
+      // min-width: 300px;
+      // margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      justify-content: center;
+      align-items: center;
+
+      img {
         max-height: 400px;
         height: auto;
-        width: auto;
-        max-width: 300px;
-        img {
-          max-height: 400px;
-          height: auto;
-          width: 100%;
-          margin: 0 auto;
-        }
+        width: 96%;
+        margin: 0 2%;
+        display: block;
       }
+    }
 
-      .infoWrapper {
+    .infoWrapper {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      .topInfo {
+        display: flex;
+        justify-content: space-between;
+        // align-items: center;
+        // margin: 0 auto;
+        // gap: 100px;
+      }
+      .bottomInfo {
         display: flex;
         flex-direction: column;
-        .topInfo {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-        }
-        .bottomInfo {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          text-align: center;
-          .title {
-            font-size: 22px;
-            font-weight: bold;
-            margin-bottom: 10px;
-            text-transform: capitalize;
-          }
+        align-items: center;
+        text-align: center;
+        .title {
+          font-size: 22px;
+          font-weight: bold;
+          margin-bottom: 10px;
+          text-transform: capitalize;
         }
       }
     }
+  }
+
+  .book:hover {
+    transform: scale3d(1.05, 1.05, 1.05);
+    transition: all 300ms ease;
+    .bookLink {
+      color: #ef6d58;
+      transition: all 300ms ease;
+    }
+  }
+  .book:active {
   }
 }
 
 .bookLink {
   color: $dark;
-}
-
-.bookLink:hover {
-  color: $dark_accent;
-  transform: scale(1.05);
-  transition: all 300ms ease;
 }

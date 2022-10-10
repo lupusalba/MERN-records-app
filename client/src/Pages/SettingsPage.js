@@ -5,7 +5,7 @@ const SettingsPage = () => {
     <div>
     
     <Navigation />
-      <h1>SettingsPage</h1>
+      <h1>SettingsPagez</h1>
     </div>
   )
 }

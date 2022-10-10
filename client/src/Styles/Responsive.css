@@ -1,5 +1,5 @@
 /* Desktops and laptops ----------- */
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1140px) {
   .book {
     grid-column: span 3;
   }
@@ -19,7 +19,7 @@
     grid-area: 2/7/span 1/span 5;
   }
 }
-@media only screen and (min-width: 851px) and (max-width: 1199px) {
+@media only screen and (min-width: 801px) and (max-width: 1140px) {
   .book {
     grid-column: span 4;
   }
@@ -42,9 +42,9 @@
     margin-top: 50px;
   }
 }
-@media only screen and (min-width: 500px) and (max-width: 850px) {
+@media (max-width: 800px) {
   .book {
-    grid-column: span 6;
+    grid-column: span 12;
   }
   .bookDetailsHeading {
     grid-area: 1/1/span 1/span 12;

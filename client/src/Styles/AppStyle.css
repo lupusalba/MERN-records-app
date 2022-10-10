@@ -240,47 +240,57 @@ label {
   width: auto;
   max-width: 300px;
   position: relative;
-}
-.books .book a .heroWrapper {
-  max-height: 400px;
-  height: auto;
-  width: auto;
-  max-width: 300px;
-}
-.books .book a .heroWrapper img {
-  max-height: 400px;
-  height: auto;
-  width: 100%;
   margin: 0 auto;
-}
-.books .book a .infoWrapper {
   display: flex;
   flex-direction: column;
-}
-.books .book a .infoWrapper .topInfo {
-  display: flex;
-  justify-content: space-between;
+  align-content: center;
+  justify-content: center;
   align-items: center;
 }
-.books .book a .infoWrapper .bottomInfo {
+.books .book .heroWrapper {
+  max-height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+.books .book .heroWrapper img {
+  max-height: 400px;
+  height: auto;
+  width: 96%;
+  margin: 0 2%;
+  display: block;
+}
+.books .book .infoWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.books .book .infoWrapper .topInfo {
+  display: flex;
+  justify-content: space-between;
+}
+.books .book .infoWrapper .bottomInfo {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
 }
-.books .book a .infoWrapper .bottomInfo .title {
+.books .book .infoWrapper .bottomInfo .title {
   font-size: 22px;
   font-weight: bold;
   margin-bottom: 10px;
   text-transform: capitalize;
 }
-
+.books .book:hover {
+  transform: scale3d(1.05, 1.05, 1.05);
+  transition: all 300ms ease;
+}
+.books .book:hover .bookLink {
+  color: #ef6d58;
+  transition: all 300ms ease;
+}
 .bookLink {
   color: #391400;
-}
-
-.bookLink:hover {
-  color: #ef6d58;
-  transform: scale(1.05);
-  transition: all 300ms ease;
 }/*# sourceMappingURL=AppStyle.css.map */

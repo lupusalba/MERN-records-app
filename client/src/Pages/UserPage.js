@@ -9,12 +9,8 @@ const UserPage = () => {
 
   return (
     <div className="page" id="user-page">
-      <aside>
-        <Navigation />
-      </aside>
-      <section>
-        <Books id={userData._id} />
-      </section>
+      <Navigation />
+      <h3>Welcome users X!</h3>
     </div>
   )
 }

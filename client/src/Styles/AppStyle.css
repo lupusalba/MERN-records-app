@@ -18,6 +18,7 @@ input {
   border-style: inset;
   border-width: 1px;
   box-sizing: border-box;
+  border-color: #391400;
 }
 
 input:focus-visible {
@@ -41,11 +42,7 @@ label {
 #navigation {
   width: 100px;
   height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  justify-content: space-evenly;
-  align-items: center;
+  z-index: 111111111111;
 }
 #navigation .websiteMode {
   height: 80px;
@@ -103,6 +100,35 @@ label {
 #navigation a:active span svg path {
   fill: #f3d1bf;
   transition: all 300ms ease;
+}
+
+#navToggleBtn {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: transparent;
+  border: none;
+  z-index: 111111111111111120;
+}
+
+.hideNav {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+.showNav {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  gap: 30px;
+  background: red;
+  top: 0;
 }
 
 .newBook form {
@@ -266,6 +292,7 @@ label {
   display: flex;
   flex-direction: column;
   width: 100%;
+  margin-top: 5px;
 }
 .books .book .infoWrapper .topInfo {
   display: flex;
@@ -293,4 +320,35 @@ label {
 }
 .bookLink {
   color: #391400;
+}
+
+#loginFormContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin-top: -20vh;
+}
+#loginFormContainer button {
+  font-size: 18px;
+  height: 40px;
+  width: 500px;
+  border-style: inset;
+  border-width: 1px;
+  box-sizing: border-box;
+  background: #391400;
+  color: #ffffff;
+  border-color: #391400;
+}
+#loginFormContainer button:hover {
+  background: #ffffff;
+  color: #391400;
+  transition: all 300ms ease;
+}
+#loginFormContainer button:active {
+  background: #ffffff;
+  color: #391400;
+  box-shadow: 5px 5px 5px #391400;
+  transition: all 300ms ease;
 }/*# sourceMappingURL=AppStyle.css.map */

@@ -1,10 +1,22 @@
 import { Link } from "react-router-dom"
-import { BiBookAdd, BiBookOpen, BiAdjust, BiUser } from "react-icons/bi";
+import { BiMenu, BiBookAdd, BiBookOpen, BiAdjust, BiUser } from "react-icons/bi";
+import { useState } from "react";
 
 
 const Navigation = () => {
+
+  const [navToggle, setNavToggle] = useState(false);
+
+
+
+
+
   return (
-      <nav id="navigation">
+    <div className="navigationContainer">
+      <button id="navToggleBtn" onClick={(e) => setNavToggle(!navToggle)}>
+        <BiMenu />
+      </button>
+      <nav id="navigation" className={navToggle ? "showNav" : "hideNav"}>
         {/* <button className="websiteMode">
         <span>
           <BiAdjust />
@@ -34,6 +46,7 @@ const Navigation = () => {
           Logout
         </Link>
       </nav>
+    </div>
   )
 }
 

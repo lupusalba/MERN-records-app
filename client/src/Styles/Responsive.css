@@ -1,5 +1,18 @@
 /* Desktops and laptops ----------- */
 @media only screen and (min-width: 1140px) {
+  #navToggleBtn {
+    display: none;
+  }
+  #navigation {
+    width: 100px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+    z-index: 111;
+  }
   .book {
     grid-column: span 3;
   }
@@ -19,9 +32,22 @@
     grid-area: 2/7/span 1/span 5;
   }
 }
-@media only screen and (min-width: 801px) and (max-width: 1140px) {
+@media only screen and (min-width: 801px) and (max-width: 1139px) {
+  #navToggleBtn {
+    display: none;
+  }
   .book {
     grid-column: span 4;
+  }
+  #navigation {
+    width: 100px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+    z-index: 111;
   }
   .bookDetailsHeading {
     grid-column: span 10;
@@ -43,6 +69,12 @@
   }
 }
 @media (max-width: 800px) {
+  #navigation {
+    width: 100vw;
+  }
+  #navToggleBtn {
+    display: block;
+  }
   .book {
     grid-column: span 12;
   }

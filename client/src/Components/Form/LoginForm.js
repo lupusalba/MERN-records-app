@@ -125,7 +125,7 @@ const LoginForm = () => {
           required
         />
 
-        <button>Sign in</button>
+        <button type="submit">Sign in</button>
       </form>
 
       <p>Need an Account?<br />

@@ -105,7 +105,7 @@ const LoginForm = () => {
           required
         /> */}
 
-        <label htmlFor="userName">userName:</label>
+        <label htmlFor="userName">User Name:</label>
         <input
           type="text"
           id="userName"

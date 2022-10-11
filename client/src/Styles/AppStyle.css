@@ -322,13 +322,32 @@ label {
   color: #391400;
 }
 
-#loginFormContainer {
+#loginPage {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("https://images.pexels.com/photos/193340/pexels-photo-193340.jpeg?");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+#loginPage h1 {
+  text-align: center;
+  margin: 0;
+}
+
+#loginFormContainer form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   align-content: center;
-  margin-top: -20vh;
+}
+#loginFormContainer form input {
+  margin-bottom: 20px;
 }
 #loginFormContainer button {
   font-size: 18px;
@@ -350,5 +369,17 @@ label {
   background: #ffffff;
   color: #391400;
   box-shadow: 5px 5px 5px #391400;
+  transition: all 300ms ease;
+}
+
+.line {
+  font-weight: bold;
+}
+.line a {
+  color: #391400;
+}
+.line a:hover {
+  color: #ef6d58;
+  transform: scale(1.05);
   transition: all 300ms ease;
 }/*# sourceMappingURL=AppStyle.css.map */

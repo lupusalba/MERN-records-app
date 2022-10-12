@@ -12,6 +12,11 @@
     justify-content: space-evenly;
     align-items: center;
     z-index: 111;
+    position: fixed;
+    left: 0;
+  }
+  .books {
+    margin-left: 100px;
   }
   .book {
     grid-column: span 3;
@@ -33,6 +38,10 @@
   }
 }
 @media only screen and (min-width: 801px) and (max-width: 1139px) {
+  section {
+    display: block;
+    margin: 0 auto;
+  }
   #navToggleBtn {
     display: none;
   }
@@ -71,6 +80,7 @@
 @media (max-width: 800px) {
   #navigation {
     width: 100vw;
+    margin-left: -50px;
   }
   #navToggleBtn {
     display: block;

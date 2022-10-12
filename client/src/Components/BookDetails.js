@@ -33,6 +33,7 @@ const BookDetails = (book) => {
         <button onClick={() => { deleteBook(); }} className="deleteBook">Delete</button>
       </div>
 
+    {/* <div className="heroDataContainer"> */}
       <div className="largeHeroImageWrapper">
         <img className="largeHeroImage" src={book.book.heroImage} />
       </div>
@@ -105,7 +106,7 @@ const BookDetails = (book) => {
 
 
       </div>
-
+{/* // </div> */}
     </div>
   )
 }

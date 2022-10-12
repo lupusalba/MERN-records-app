@@ -323,33 +323,51 @@ label {
 }
 
 #loginPage {
+  background-image: url("https://images.pexels.com/photos/193340/pexels-photo-193340.jpeg?");
+}
+
+#registerPage {
+  background-image: url("https://images.pexels.com/photos/159866/books-book-pages-read-literature-159866.jpeg?");
+}
+
+#loginPage,
+#registerPage {
   height: 100vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url("https://images.pexels.com/photos/193340/pexels-photo-193340.jpeg?");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 }
-#loginPage h1 {
+#loginPage h1,
+#registerPage h1 {
   text-align: center;
   margin: 0;
 }
 
-#loginFormContainer form {
+#loginFormContainer,
+#registerFormContainer {
+  padding: 30px;
+  background: white;
+  border-radius: 10px;
+}
+#loginFormContainer form,
+#registerFormContainer form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   align-content: center;
 }
-#loginFormContainer form input {
+#loginFormContainer form input,
+#registerFormContainer form input {
   margin-bottom: 20px;
 }
-#loginFormContainer button {
+#loginFormContainer button,
+#registerFormContainer button {
   font-size: 18px;
   height: 40px;
   width: 500px;
@@ -360,12 +378,14 @@ label {
   color: #ffffff;
   border-color: #391400;
 }
-#loginFormContainer button:hover {
+#loginFormContainer button:hover,
+#registerFormContainer button:hover {
   background: #ffffff;
   color: #391400;
   transition: all 300ms ease;
 }
-#loginFormContainer button:active {
+#loginFormContainer button:active,
+#registerFormContainer button:active {
   background: #ffffff;
   color: #391400;
   box-shadow: 5px 5px 5px #391400;
@@ -382,4 +402,49 @@ label {
   color: #ef6d58;
   transform: scale(1.05);
   transition: all 300ms ease;
+}
+
+.instructions {
+  font-size: 0.75rem;
+  border-radius: 0.5rem;
+  background: #000;
+  color: #fff;
+  padding: 0.25rem;
+  position: relative;
+  bottom: -10px;
+}
+
+.instructions > svg {
+  margin-right: 0.25rem;
+}
+
+.offscreen {
+  position: absolute;
+  left: -9999px;
+}
+
+.hide {
+  display: none;
+}
+
+.valid {
+  color: limegreen;
+  margin-left: 0.25rem;
+}
+
+.invalid {
+  color: red;
+  margin-left: 0.25rem;
+}
+
+.errmsg {
+  background-color: lightpink;
+  color: firebrick;
+  font-weight: bold;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.line {
+  display: inline-block;
 }/*# sourceMappingURL=AppStyle.css.map */

@@ -104,14 +104,14 @@ const RegisterForm = () => {
   return (
     <>
       {success ? (
-        <section className="successReg">
+        <div className="successReg">
           <h1>Success!</h1>
           <p>
             <Link to="/login">Login</Link>
           </p>
-        </section>
+        </div>
       ) : (
-        <section id="registerFormContainer">
+        <div id="registerFormContainer">
 
           <p ref={errRef} className={errMsg ? "errMsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
           <h1>Register</h1>
@@ -144,8 +144,8 @@ const RegisterForm = () => {
 
             <label htmlFor="email">
               Email:
-              <FontAwesomeIcon icon={faCheck} className={validEmail ? "valid" : "hide"} />
-              <FontAwesomeIcon icon={faTimes} className={validEmail || !email ? "hide" : "invalid"} />
+              {/* <FontAwesomeIcon icon={faCheck} className={validEmail ? "valid" : "hide"} />
+              <FontAwesomeIcon icon={faTimes} className={validEmail || !email ? "hide" : "invalid"} /> */}
             </label>
             <input
               type="email"
@@ -217,7 +217,7 @@ const RegisterForm = () => {
               <Link to="/login">Sign In</Link>
             </span>
           </p>
-        </section>
+        </div>
       )}
     </>
   )

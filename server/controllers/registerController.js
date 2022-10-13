@@ -21,24 +21,9 @@ const handleNewUser =  async (req, res) => {
       "userEmail": userEmail,
       "password": hashedPassword
     })
-    console.log(result)
 
     res.status(201).json({'success': `New User ${userEmail} created`});
 
-
-    // const newUser =  User({
-    //   userName,
-    //   "roles": { "User" : 2001 },
-    //   userEmail,
-    //   'password': hashedPassword
-    // })
-    // //store new user
-    // await newUser.save()
-    // res.status(201).json({
-    //   status: 'success',
-    //   message: `New User ${userName} created`,
-    //   data: { newUser }
-    // })
     
   } catch (err) {
     res.status(500).json({

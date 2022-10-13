@@ -12,7 +12,6 @@ const BookDetails = (book) => {
   const deleteBook = async () => {
     try {
       const response = await axiosPrivate.delete(`/books`, { params: { _id: book.book._id } });
-      console.log('deleted ' + book.book._id)
       navigate(-1)
     } catch (err) {
       console.log(err)

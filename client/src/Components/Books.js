@@ -8,7 +8,6 @@ const Books = ({ id }) => {
   const axiosPrivate = useAxiosPrivate();
   const { userData, setUserData } = useContext(UserContext);
 
-  console.log("from books.js: " + id);
   const [listOfBooks, setListOfBooks] = useState([])
 
   

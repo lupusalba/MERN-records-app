@@ -51,13 +51,11 @@ const LoginForm = () => {
       );
 
 
-      console.log(JSON.stringify(response?.data));
       
 
       setUserData(response?.data?.userPublicData);
 
       const userID = response?.data?.userPublicData._id
-      console.log(userID);
 
 
       const accessToken = response?.data?.accessToken;
@@ -67,9 +65,8 @@ const LoginForm = () => {
       setPwd('');
       setUserName('');
 
-      navigate(`/profile`, { replace: true });
+      navigate(`/books`, { replace: true });
 
-      console.log(JSON.stringify(response));
 
     } catch (err) {
       if (!err?.response) {
@@ -93,17 +90,6 @@ const LoginForm = () => {
       <h1>Sign in</h1>
 
       <form id="loginForm" onSubmit={handleSubmit}>
-
-        {/* <label htmlFor="username">Email:</label>
-        <input
-          type="text"
-          id="email"
-          ref={emailRef}
-          autoComplete="off"
-          onChange={(e) => setEmail(e.target.value)}
-          value={email}
-          required
-        /> */}
 
         <label htmlFor="userName">User Name:</label>
         <input

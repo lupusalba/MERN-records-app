@@ -33,7 +33,6 @@ const UpdateBook = ({ book }) => {
     let id = book._id
     try {
       let updatedBook = await axiosPrivate.patch(`/books`, oldBook, { params: { id: id } })
-      console.log(updatedBook)
       navigate(-1);
     } catch (err) {
       console.error(err);
@@ -51,7 +50,6 @@ const UpdateBook = ({ book }) => {
       ...prevBook,
       [name]: value
     }))
-    console.log(oldBook)
   }
 
   return (

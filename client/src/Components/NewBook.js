@@ -9,7 +9,6 @@ const NewBook = () => {
   const axiosPrivate = useAxiosPrivate();
   const { userData, setUserData } = useContext(UserContext);
   
-  console.log("from newbook.js " + userData._id);
 
   const [newBook, setNewBook] = useState({
     user: userData._id,
@@ -59,7 +58,6 @@ const NewBook = () => {
       ...prevBook,
       [name]: value
     }))
-    console.log(newBook)
   }
 
 

@@ -1,4 +1,3 @@
-import Navigation from "../Components/Navigation";
 import { Link } from "react-router-dom";
 
 import React from "react";
@@ -6,7 +5,9 @@ import React from "react";
 const Home = () => {
   return (
     <div id="home">
+
       <div className="homeIntro">
+        <h1>Welcome to Library</h1>
         <div className="loginMenu">
           <Link to="/login" className="login loginSignUp">
             Login
@@ -15,9 +16,10 @@ const Home = () => {
             Register
           </Link>
         </div>
-
-        <h1>Welcome to Library</h1>
       </div>
+        
+      
+
     </div>
   );
 };

@@ -35,7 +35,7 @@
 }
 
 @media only screen and (min-width: 801px) and (max-width:1139px) {
-  section {display: block; margin: 0 auto;}
+  section {display: block;     margin: auto;}
   #navToggleBtn { display: none; }
   .book { grid-column: span 4; }
   #navigation {
@@ -69,9 +69,9 @@
 }
 
 @media (max-width: 800px) {
-  section { margin: auto; }
+  section { margin: auto; flex-direction: column;}
   // NAVIGATION
-  //#navigation { width: 100vw; margin-left: -50px;}
+  #navigation { width: 100vw; }
   #navToggleBtn { display: block; }
   // ALL BOOKS / COLLECTION
   .book { grid-column: span 12; }

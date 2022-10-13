@@ -2,7 +2,6 @@ import React from 'react'
 import axiosPrivate from '../api/axios'
 
 function User({userID}){
-  console.log(userID)
 
 
 

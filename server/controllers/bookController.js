@@ -22,9 +22,6 @@ const getAllBooks = async (req, res) => {
 }
 
 const createNewBook = async (req, res) => {
-  console.log("createNewBook called ==================-------------****************====")
-  console.log("createNewBook called ==================-------------****************====")
-  console.log("createNewBook called ==================-------------****************====")
   
   if(!req?.body){
     return res.status(400).json({'message':'Required fields not provided, try again'});
@@ -50,8 +47,6 @@ const updateBook = async (req, res) => {
   if(!req?.query?.id){
     return res.status(400).json({'message':'ID parameter is required.'});
   }
-  console.log("update book: " + req.query.id);
-  console.log(JSON.stringify(req.body))
   const updatedBook = await Book.findByIdAndUpdate(req.query.id, req.body, {
     new: true,
     runValidators: true
@@ -73,7 +68,6 @@ const deleteBook = async (req, res) => {
   if(!req?.query?._id){
     return res.status(400).json({'message':'ID parameter is required.'});
   }
-  console.log("delete book: " + req.query._id);
   await Book.findByIdAndDelete(req.query._id)
 
   try {
@@ -90,11 +84,9 @@ const deleteBook = async (req, res) => {
 }
 
 const getBook = async (req, res) => {
-  console.log(req)
   if(!req?.params?._id){
     return res.status(400).json({'message':'ID parameter is required.'});
   }
-  console.log("get book: " + req.params)
   const oneBook = await Book.findById(req.params._id)
   try {
     res.status(200).json({

@@ -13,7 +13,6 @@ const BookPage = () => {
   const [oneBook, setOneBook] = useState({})
 
   const { id } = useParams();
-  console.log("from bookpage: " + id)
   useEffect(() => {
     axiosPrivate.get(`/books/${id}`).then((res) => {
       setOneBook(res.data.data.oneBook)

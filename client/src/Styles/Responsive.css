@@ -38,7 +38,7 @@
 @media only screen and (min-width: 801px) and (max-width: 1139px) {
   section {
     display: block;
-    margin: 0 auto;
+    margin: auto;
   }
   #navToggleBtn {
     display: none;
@@ -78,8 +78,11 @@
 @media (max-width: 800px) {
   section {
     margin: auto;
+    flex-direction: column;
   }
-  #navigation { width: 100%; }
+  #navigation {
+    width: 100vw;
+  }
   #navToggleBtn {
     display: block;
   }

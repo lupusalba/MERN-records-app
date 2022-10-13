@@ -35,12 +35,12 @@ const Navigation = () => {
           </span>
           New Book
         </Link>
-        <Link className="navLink" to="/profile">
+        {/* <Link className="navLink" to="/profile">
           <span>
             <BiUser />
           </span>
           Profile
-        </Link>
+        </Link> */}
 
         <Link to="/logout">
           Logout

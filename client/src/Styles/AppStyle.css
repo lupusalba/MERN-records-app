@@ -7,8 +7,12 @@ aside {
 }
 
 section {
-  display: inline-block;
-  width: calc(100% - 100px);
+  display: flex;
+  margin-left: 100px;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
 }
 
 input {

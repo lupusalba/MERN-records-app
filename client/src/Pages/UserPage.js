@@ -9,8 +9,14 @@ const UserPage = () => {
 
   return (
     <div className="page" id="user-page">
-      <Navigation />
-      <h3>Welcome users X!</h3>
+      
+      <aside>
+        <Navigation />
+      </aside>
+      <section>
+        <h3>Welcome {userData.userName}</h3>
+        
+      </section>
     </div>
   )
 }

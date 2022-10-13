@@ -14,9 +14,7 @@
     z-index: 111;
     position: fixed;
     left: 0;
-  }
-  .books {
-    margin-left: 100px;
+    top: 0;
   }
   .book {
     grid-column: span 3;
@@ -78,10 +76,10 @@
   }
 }
 @media (max-width: 800px) {
-  #navigation {
-    width: 100vw;
-    margin-left: -50px;
+  section {
+    margin: auto;
   }
+  #navigation { width: 100%; }
   #navToggleBtn {
     display: block;
   }

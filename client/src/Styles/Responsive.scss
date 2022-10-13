@@ -14,8 +14,8 @@
     z-index: 111;
     position: fixed;
     left: 0;
+    top: 0;
   }
-  .books { margin-left: 100px;}
   .book { grid-column: span 3; }
   .bookDetailsHeading {
     grid-area: 1 / 1 / span 1 / span 10;
@@ -36,7 +36,8 @@
 
 @media only screen and (min-width: 801px) and (max-width:1139px) {
   section {display: block; margin: 0 auto;}
-  #navToggleBtn { display: none; }.book { grid-column: span 4; }
+  #navToggleBtn { display: none; }
+  .book { grid-column: span 4; }
   #navigation {
     width: 100px;
     height: 100vh;
@@ -68,8 +69,9 @@
 }
 
 @media (max-width: 800px) {
+  section { margin: auto; }
   // NAVIGATION
-  #navigation { width: 100vw; margin-left: -50px;}
+  //#navigation { width: 100vw; margin-left: -50px;}
   #navToggleBtn { display: block; }
   // ALL BOOKS / COLLECTION
   .book { grid-column: span 12; }

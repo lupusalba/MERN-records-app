@@ -2,7 +2,7 @@ import { Outlet } from 'react-router-dom'
 
 import React from 'react'
 
-const LayoutTest = () => {
+const Layout = () => {
   return (
     <div>
       <Outlet />
@@ -10,4 +10,4 @@ const LayoutTest = () => {
   )
 }
 
-export default LayoutTest
+export default Layout

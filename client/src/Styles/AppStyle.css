@@ -331,12 +331,8 @@ label {
   color: #391400;
 }
 
-#loginPage {
-  background-image: url("https://images.pexels.com/photos/193340/pexels-photo-193340.jpeg?");
-}
-
-#registerPage {
-  background-image: url("https://images.pexels.com/photos/159866/books-book-pages-read-literature-159866.jpeg?");
+#loginPage, #registerPage {
+  background-image: url("https://images.pexels.com/photos/762687/pexels-photo-762687.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1280&dpr=1");
 }
 
 #loginPage,

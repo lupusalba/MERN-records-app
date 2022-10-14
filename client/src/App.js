@@ -4,7 +4,7 @@ import LoginPage from './Pages/LoginPage'
 import RegisterPage from './Pages/RegisterPage'
 import Home from './Pages/Home'
 import UnauthorizedPage from './Pages/UnauthorizedPage'
-import LayoutTest from './Pages/LayoutTest'
+import Layout from './Pages/Layout'
 import AdminPage from './Pages/AdminPage'
 import Error from './Pages/ErrorNotFound'
 import AllBooks from './Pages/AllBooksPage'
@@ -28,7 +28,7 @@ function App() {
       
 
       <Routes>
-        <Route path="/" element={<LayoutTest />}>
+        <Route path="/" element={<Layout />}>
           {/* public routes */}
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />

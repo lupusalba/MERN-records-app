@@ -232,6 +232,7 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%;
 }
 .bookDetailsWrapper .updateDelete .deleteBook {
   border-radius: 20px;

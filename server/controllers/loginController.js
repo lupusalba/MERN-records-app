@@ -12,7 +12,6 @@ const handleLogin = async (req, res) => {
 
     
     if (!foundUser) {
-        console.log('user not found');
         return res.sendStatus(401)// unauthorized
     }
 
@@ -32,7 +31,6 @@ const handleLogin = async (req, res) => {
             process.env.ACCESS_TOKEN_SECRET,
             { expiresIn: '30s' } // 5 or to 15min to be in production 
         );
-        console.log('accessToken token: ' + accessToken)
 
         const refreshToken = jwt.sign(
             // { "userName": foundUser.userName },
@@ -45,13 +43,11 @@ const handleLogin = async (req, res) => {
             process.env.REFRESH_TOKEN_SECRET,
             { expiresIn: '1h' }
         );
-        console.log('refresh token: ' + refreshToken)
         
         // saving refresh token with current user
         foundUser.refreshToken = refreshToken;
         const result = await foundUser.save();
 
-        console.log('result: ' + result)
 
         let userPublicData = {
             _id: foundUser._id,

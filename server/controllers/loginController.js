@@ -30,8 +30,10 @@ const handleLogin = async (req, res) => {
                 },
             },
             process.env.ACCESS_TOKEN_SECRET,
-            { expiresIn: '1h' } // 5 or to 15min to be in production 
+            { expiresIn: '30s' } // 5 or to 15min to be in production 
         );
+        console.log('accessToken token: ' + accessToken)
+
         const refreshToken = jwt.sign(
             // { "userName": foundUser.userName },
             {
@@ -41,11 +43,15 @@ const handleLogin = async (req, res) => {
                 },
             },
             process.env.REFRESH_TOKEN_SECRET,
-            { expiresIn: '1d' }
+            { expiresIn: '1h' }
         );
+        console.log('refresh token: ' + refreshToken)
+        
         // saving refresh token with current user
         foundUser.refreshToken = refreshToken;
         const result = await foundUser.save();
+
+        console.log('result: ' + result)
 
         let userPublicData = {
             _id: foundUser._id,
@@ -55,7 +61,7 @@ const handleLogin = async (req, res) => {
 
         // Creates Secure Cookie with refresh token
         res.cookie('jwt', refreshToken, { httpOnly: true, secure: true, sameSite: 'None', maxAge: 24 * 60 * 60 * 1000 });
-
+        
         // Send authorization roles and access token to user
         res.json({ roles, accessToken, userPublicData });
     } else {

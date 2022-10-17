@@ -1,15 +1,23 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 import { BiMenu, BiBookAdd, BiBookOpen, BiAdjust, BiUser } from "react-icons/bi";
 import { useState } from "react";
-
+import {useNavigate} from "react-router-dom";
+import { useContext } from "react";
+import AuthContext from "../context/AuthProvider";
 
 const Navigation = () => {
 
+  const { setAuth } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const logout = async () => {
+    // if used in more components, this should be in context 
+    // axios to /logout endpoint 
+    setAuth({});
+    navigate('/');
+}
+
   const [navToggle, setNavToggle] = useState(false);
-
-
-
-
 
   return (
     <div className="navigationContainer">
@@ -42,9 +50,9 @@ const Navigation = () => {
           Profile
         </Link> */}
 
-        <Link to="/logout">
+        <button onClick={(e) => logout()}>
           Logout
-        </Link>
+        </button>
       </nav>
     </div>
   )

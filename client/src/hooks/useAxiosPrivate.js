@@ -8,7 +8,6 @@ const useAxiosPrivate = () => {
     const { auth } = useAuth();
 
     useEffect(() => {
-
         //axiosPrivate.defaults.headers.common['Authorization'] = 'Bearer ' + auth.accessToken
 
         const requestIntercept = axiosPrivate.interceptors.request.use(
@@ -28,6 +27,7 @@ const useAxiosPrivate = () => {
                 if (error?.response?.status === 403 && !prevRequest?.sent) {
                     prevRequest.sent = true;
                     const newAccessToken = await refresh();
+                    console.log('newAccessToken from useAxiosPrivate: ' + newAccessToken);
                     prevRequest.headers['Authorization'] = `Bearer ${newAccessToken}`;
                     console.log("newAccessToken" + newAccessToken);
                     return axiosPrivate(prevRequest);

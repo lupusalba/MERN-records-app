@@ -141,6 +141,18 @@ label {
       transition: all 300ms ease;
     }
   }
+
+  button {
+    border: none;
+    background: none;
+    color: $dark;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  button:hover {
+    color: $light_accent;
+    transition: all 300ms ease;
+  }
 }
 
 #navToggleBtn {

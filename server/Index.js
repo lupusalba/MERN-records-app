@@ -21,13 +21,23 @@ app.use(credentials);
 app.use(cors(corsOptions));
 
 // built-in middleware to handle urlencoded form data
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({extended: true}));
 
 // built-in middleware for json 
 app.use(express.json());
 
 //middleware for cookies
 app.use(cookieParser());
+// test down
+app.get('/', function (req, res) {
+  // Cookies that have not been signed
+  console.log('Cookies: ', req.cookies)
+
+  // Cookies that have been signed
+  console.log('Signed Cookies: ', req.signedCookies)
+})
+// test up
+
 
 //routes
 

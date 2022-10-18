@@ -1,5 +1,8 @@
 /* Desktops and laptops ----------- */
 @media only screen and (min-width: 1140px) {
+  .navigationContainer {
+    width: 100px;
+  }
   #navToggleBtn {
     display: none;
   }
@@ -40,6 +43,9 @@
     display: block;
     margin: auto;
   }
+  .navigationContainer {
+    width: 100px;
+  }
   #navToggleBtn {
     display: none;
   }
@@ -79,6 +85,9 @@
   section {
     margin: auto;
     flex-direction: column;
+  }
+  .navigationContainer {
+    width: 0;
   }
   #navigation {
     width: 100vw;

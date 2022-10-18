@@ -8,7 +8,6 @@ aside {
 
 section {
   display: flex;
-  margin-left: 100px;
   flex-direction: row;
   align-content: center;
   justify-content: center;
@@ -44,12 +43,16 @@ label {
   justify-content: center;
 }
 
-#navigation {
+.navigationContainer {
   width: 100px;
+  position: relative;
+}
+.navigationContainer #navigation {
+  position: fixed;
   height: 100vh;
   z-index: 11;
 }
-#navigation .websiteMode {
+.navigationContainer #navigation .websiteMode {
   height: 80px;
   width: 80px;
   background: transparent;
@@ -57,22 +60,22 @@ label {
   font-weight: bold;
   font-size: 18px;
 }
-#navigation .websiteMode span {
+.navigationContainer #navigation .websiteMode span {
   font-size: 60px;
   display: contents;
 }
-#navigation .websiteMode span svg path {
+.navigationContainer #navigation .websiteMode span svg path {
   fill: #391400;
 }
-#navigation .websiteMode:hover {
+.navigationContainer #navigation .websiteMode:hover {
   color: #ef6d58;
   transition: all 300ms ease;
 }
-#navigation .websiteMode:hover span svg path {
+.navigationContainer #navigation .websiteMode:hover span svg path {
   fill: #ef6d58;
   transition: all 300ms ease;
 }
-#navigation a {
+.navigationContainer #navigation a {
   text-decoration: none;
   color: #391400;
   font-weight: bold;
@@ -83,37 +86,37 @@ label {
   justify-content: center;
   align-items: center;
 }
-#navigation a span {
+.navigationContainer #navigation a span {
   font-size: 60px;
 }
-#navigation a span svg path {
+.navigationContainer #navigation a span svg path {
   fill: #391400;
 }
-#navigation a:hover {
+.navigationContainer #navigation a:hover {
   color: #ef6d58;
   transition: all 300ms ease;
 }
-#navigation a:hover span svg path {
+.navigationContainer #navigation a:hover span svg path {
   fill: #ef6d58;
   transition: all 300ms ease;
 }
-#navigation a:active {
+.navigationContainer #navigation a:active {
   color: #f3d1bf;
   padding-top: 2px;
   transition: all 300ms ease;
 }
-#navigation a:active span svg path {
+.navigationContainer #navigation a:active span svg path {
   fill: #f3d1bf;
   transition: all 300ms ease;
 }
-#navigation button {
+.navigationContainer #navigation button {
   border: none;
   background: none;
   color: #391400;
   font-weight: bold;
   font-size: 18px;
 }
-#navigation button:hover {
+.navigationContainer #navigation button:hover {
   color: #ef6d58;
   transition: all 300ms ease;
 }

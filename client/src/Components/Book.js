@@ -3,13 +3,27 @@ import { Link } from 'react-router-dom'
 const Book = (book) => {
   const dt = new Date(book.book.lastUpdated);
   const parsedDate = dt.toLocaleDateString();
-
+  let heroImage = book.book.heroImage;
   return (
     <div className="book">
       <Link to={`/books/${book.book._id}`} className="bookLink">
 
         <div className="heroWrapper">
-          <img className="heroImage" alt="img" src={book.book.heroImage} />
+          {
+            heroImage
+            ?
+            (
+              <img className="heroImage" alt="img" src={book.book.heroImage} />
+            )
+            : 
+            (
+              <div className="noHeroTitle">
+                <p className="rotation">
+                  {book.book.title}
+                </p>
+              </div>
+            )
+          }
 
         </div>
 

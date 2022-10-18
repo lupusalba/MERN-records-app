@@ -12,6 +12,7 @@ section {
   align-content: center;
   justify-content: center;
   align-items: center;
+  min-width: 100%;
 }
 
 input {
@@ -298,6 +299,7 @@ label {
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
   gap: 30px;
+  min-width: 100%;
 }
 .books .book a {
   max-height: 100%;
@@ -356,11 +358,29 @@ label {
   color: #ef6d58;
   transition: all 300ms ease;
 }
+.noHeroTitle {
+  height: 300px;
+  width: 100%;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+  font-size: 28px;
+}
+
+.rotation {
+  transform: rotateZ(45deg);
+}
+
 .bookLink {
   color: #391400;
 }
 
-#loginPage, #registerPage {
+#loginPage,
+#registerPage {
   background-image: url("https://images.pexels.com/photos/762687/pexels-photo-762687.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1280&dpr=1");
 }
 

@@ -36,7 +36,22 @@ const BookDetails = (book) => {
 
       <div className="heroDataContainer">
         <div className="largeHeroImageWrapper">
-          <img className="largeHeroImage" src={book.book.heroImage} />
+          
+          {
+            book.book.heroImage
+            ?
+            (
+              <img className="largeHeroImage" src={book.book.heroImage} />
+            )
+            : 
+            (
+              <div className="noHeroTitle">
+                <p className="rotation">
+                  {book.book.title}
+                </p>
+              </div>
+            )
+          }
         </div>
         <div className="bookDetailsData">
           <div id="bookDetailsDescription">

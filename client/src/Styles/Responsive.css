@@ -22,26 +22,15 @@
   .book {
     grid-column: span 3;
   }
-  .bookDetailsHeading {
-    grid-area: 1/1/span 1/span 10;
-    margin-left: 100px;
-  }
-  .updateDelete {
-    grid-area: 1/11/span 1/span 2;
-    display: flex;
-  }
-  .largeHeroImageWrapper {
-    grid-area: 2/1/span 1/span 6;
-    margin: 0 auto;
-  }
-  .bookDetailsData {
-    grid-area: 2/7/span 1/span 5;
-  }
 }
 @media only screen and (min-width: 801px) and (max-width: 1139px) {
   section {
     display: block;
     margin: auto;
+  }
+  .heroDataContainer {
+    display: flex;
+    flex-direction: column;
   }
   .navigationContainer {
     width: 100px;
@@ -62,28 +51,14 @@
     align-items: center;
     z-index: 111;
   }
-  .bookDetailsHeading {
-    grid-column: span 10;
-    margin-left: 100px;
-  }
-  .updateDelete {
-    grid-column: span 2;
-    display: flex;
-    margin-bottom: 50px;
-  }
-  .largeHeroImageWrapper {
-    grid-column: span 12;
-    margin: 0 auto;
-  }
-  .bookDetailsData {
-    grid-column: span 12;
-    text-align: center;
-    margin-top: 50px;
-  }
 }
 @media (max-width: 800px) {
   section {
     margin: auto;
+    flex-direction: column;
+  }
+  .heroDataContainer {
+    display: flex;
     flex-direction: column;
   }
   .navigationContainer {
@@ -97,23 +72,5 @@
   }
   .book {
     grid-column: span 12;
-  }
-  .bookDetailsHeading {
-    grid-area: 1/1/span 1/span 12;
-    margin-left: 100px;
-  }
-  .updateDelete {
-    grid-area: 2/1/span 1/span 12;
-    display: flex;
-    margin-bottom: 50px;
-  }
-  .largeHeroImageWrapper {
-    grid-area: 3/1/span 1/span 12;
-    margin: 0 auto;
-  }
-  .bookDetailsData {
-    grid-area: 4/1/span 1/span 12;
-    text-align: center;
-    margin-top: 50px;
   }
 }/*# sourceMappingURL=Responsive.css.map */

@@ -33,7 +33,7 @@ aside {
 
 section {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-content: center;
   justify-content: center;
   align-items: center;
@@ -263,9 +263,9 @@ label {
 ///
 
 .bookDetailsWrapper {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: auto;
+  // display: grid;
+  // grid-template-columns: repeat(12, 1fr);
+  // grid-template-rows: auto;
   box-sizing: border-box;
   padding: 20px;
 
@@ -324,7 +324,23 @@ label {
     display: flex;
   }
 }
-
+//////////////////////////////////
+.bookDataHeader {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: space-between;
+  align-items: center;
+}
+.heroDataContainer { 
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+/////////////////////////////////
 .btnWrapper {
   width: 100%;
   display: flex;

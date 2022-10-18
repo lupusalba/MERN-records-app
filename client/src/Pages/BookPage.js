@@ -31,10 +31,12 @@ const BookPage = () => {
       </aside>
       <section>
         <BookDetails book={oneBook} />
+        <div className="updateSection">
         <div className="btnWrapper">
-        <button className="updateBtn" onClick={(e) => setShowUpdate(!showUpdate)}>Update Book</button>
+          <button className="updateBtn" onClick={(e) => setShowUpdate(!showUpdate)}>Update Book</button>
         </div>
         {showUpdate ? <UpdateBook book={oneBook} /> : ""}
+        </div>
       </section>
 
     </div>
